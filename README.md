@@ -38,9 +38,16 @@
 2. [Encuesta](docs/analysis/encuesta.md)
 
 ### Casos de Uso / Use Case
-1. [UC-01 Login](docs/analysis/UC01.md)
-2. [UC-02 Register](docs/analysis/UC02.md)
-3. [UC-03 Buscar contenido](docs/analysis/UC03.md)
+1. [UC-01 Descargar contenido](docs/analysis/UC01.md)
+2. [UC-02 Subir contenido propio](docs/analysis/UC02.md)
+3. [UC-03 Seleccionar tags de tópicos específicos](docs/analysis/UC03.md)
+4. [UC-04 Adjuntar contenido multimedia](docs/analysis/UC04.md)
+4. [UC-05 Adjuntar quices en videos](docs/analysis/UC05.md)
+4. [UC-06 Visualizar los cursos más visitados](docs/analysis/UC06.md)
+4. [UC-07 Revisión de contenido](docs/analysis/UC07.md)
+4. [UC-08 Busqueda de contenido](docs/analysis/UC08.md)
+4. [UC-09 Calificación de contenido](docs/analysis/UC09.md)
+4. [UC-10 Agregar vídeo existente](docs/analysis/UC10.md)
 4. [UC Diagram](docs/analysis/UC_Diagram.md)
 
 ### Presentation / Presentación
