@@ -15,9 +15,8 @@
 ## ¿Que tipo de cursos te gustan más?
 ![](images/encuestas/estudiantes_preferencias.png)
 
-## ¿Que tipo de cursos te gustan más?
-
 ## ¿Cual consideras que es tu desempeño academico?
+
 
 ## ¿Cuanto tiempo te toma buscar información?
 
