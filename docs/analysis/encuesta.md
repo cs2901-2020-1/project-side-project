@@ -1,7 +1,7 @@
 # Desarrollo de encuestas
 
 ## Estudiantes por año escolar
-![](images/estudiantes_por_anio.png)
+![](images/encuestas/estudiantes_por_anio.png)
 
 ## Estudiantes por ubicación
 
