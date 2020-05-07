@@ -11,7 +11,7 @@
 ## Contenido
 ### [Glosario](docs/glossary.md)
 ### Lista de Requerimientos 
-#### Requerimientos Funcionales Must-Have(8)
+#### Requerimientos Funcionales Must-Have
 1. FR-01 [#1](/../../issues/1)
 2. FR-03 [#3](/../../issues/3)
 3. FR-04 [#4](/../../issues/4)
@@ -21,11 +21,11 @@
 7. FR-09 [#9](/../../issues/9)
 8. FR-10 [#10](/../../issues/10)
 
-#### Requerimientos Funcionales Nice-to-Have(2)
+#### Requerimientos Funcionales Nice-to-Have
 1. FR-02 [#2](/../../issues/2)
 2. FR-06 [#6](/../../issues/6)
 
-#### Requerimientos No Funcionales (5)
+#### Requerimientos No Funcionales
 1. NFR-01 [#11](/../../issues/11)
 2. NFR-02 [#12](/../../issues/12)
 3. NFR-03 [#13](/../../issues/13)
