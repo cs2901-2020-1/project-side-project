@@ -29,7 +29,6 @@ Donde 1 es bajo y 5 representa excelente.
 ## Preguntas abiertas
 Hemos revisado las respuestas de los estudiantes y categorizado las respuestas en común, tal como se muestra a continuación.
 ## ¿Ventajas del recurso que utilizas?
-(En relación a la pregunta anterior)
 ![](images/encuestas/tabla_ventajas_recursos.png)
 
 ## ¿Desventajas del recurso que utilizas?
