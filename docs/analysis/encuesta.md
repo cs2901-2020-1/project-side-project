@@ -4,12 +4,16 @@
 ![](images/encuestas/estudiantes_por_anio.png)
 
 ## Estudiantes por ubicación
+![](images/encuestas/estudiantes_por_ubicacion.png)
 
 ## Estudiantes por tipo de escuela
+![](images/encuestas/estudiantes_por_tipo_escuela.png)
 
 ## ¿Que tan bueno consideran su señal de internet?
+![](images/encuestas/estudiantes_senal_internet.png)
 
 ## ¿Que tipo de cursos te gustan más?
+![](images/encuestas/estudiantes_preferencias.png)
 
 ## ¿Que tipo de cursos te gustan más?
 
