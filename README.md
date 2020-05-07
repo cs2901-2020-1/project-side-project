@@ -1,6 +1,6 @@
 # SideProject - Entregable 1: Etapa de análisis
 
-![](images/apprendo_logo.png)
+![](images/Apprendo_logo.png)
 
 |  **#** | **Código** | **Apellidos, Nombre** | **% Trabajo** |
 | :---: | :---: | :---: | :---: |
