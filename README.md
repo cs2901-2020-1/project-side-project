@@ -44,9 +44,9 @@
 4. [UC-04 Adjuntar contenido multimedia](docs/analysis/UC04.md)
 4. [UC-05 Adjuntar quices en videos](docs/analysis/UC05.md)
 4. [UC-06 Visualizar los cursos más visitados](docs/analysis/UC06.md)
-4. [UC-07 Revisión de contenido](docs/analysis/UC07.md)
-4. [UC-08 Busqueda de contenido](docs/analysis/UC08.md)
-4. [UC-09 Calificación de contenido](docs/analysis/UC09.md)
+4. [UC-07 Revisar contenido](docs/analysis/UC07.md)
+4. [UC-08 Buscar contenido](docs/analysis/UC08.md)
+4. [UC-09 Calificar de contenido](docs/analysis/UC09.md)
 4. [UC-10 Agregar vídeo existente](docs/analysis/UC10.md)
 4. [UC Diagram](docs/analysis/UC_Diagram.md)
 
