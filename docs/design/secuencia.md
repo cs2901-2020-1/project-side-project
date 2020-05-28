@@ -1,4 +1,4 @@
-# Diagramas de use cases
+# Diagramas de Secuencias
 
 ![drawing](images/secuencia1.png)
 

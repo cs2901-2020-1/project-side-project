@@ -1,3 +1,3 @@
-# Diagramas de use cases
+# Diagrama de Arquitectura
 
 ![drawing](images/arquitectura.png)

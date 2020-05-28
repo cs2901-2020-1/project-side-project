@@ -1,4 +1,4 @@
-# SideProject - Entregable 1: Etapa de análisis
+# SideProject - Entregable 2: Etapa de Diseño
 
 ![](images/Apprendo_logo.png)
 

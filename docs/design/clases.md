@@ -1,3 +1,3 @@
-# Diagramas de use cases
+# Diagrama de Clases
 
 ![drawing](images/clases.png)
