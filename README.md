@@ -34,7 +34,6 @@
 4. NFR-04 [#14](/../../issues/14)
 5. NFR-05 [#15](/../../issues/15)
 
-
 ### Resultados de las Técnicas de Recolección de Requerimientos
 1. [Entrevista](docs/analysis/entrevista.md)
 2. [Encuesta](docs/analysis/encuesta.md)
@@ -44,13 +43,20 @@
 2. [UC-02 Subir contenido propio](docs/analysis/UC02.md)
 3. [UC-03 Seleccionar tags de tópicos específicos](docs/analysis/UC03.md)
 4. [UC-04 Adjuntar contenido multimedia](docs/analysis/UC04.md)
-4. [UC-05 Adjuntar quices en videos](docs/analysis/UC05.md)
-4. [UC-06 Visualizar los cursos más visitados](docs/analysis/UC06.md)
-4. [UC-07 Revisar contenido](docs/analysis/UC07.md)
-4. [UC-08 Buscar contenido](docs/analysis/UC08.md)
-4. [UC-09 Calificar de contenido](docs/analysis/UC09.md)
-4. [UC-10 Agregar vídeo existente](docs/analysis/UC10.md)
-4. [UC Diagram](docs/analysis/UC_Diagram.md)
+5. [UC-05 Adjuntar quices en videos](docs/analysis/UC05.md)
+6. [UC-06 Visualizar los cursos más visitados](docs/analysis/UC06.md)
+7. [UC-07 Revisar contenido](docs/analysis/UC07.md)
+8. [UC-08 Buscar contenido](docs/analysis/UC08.md)
+9. [UC-09 Calificar de contenido](docs/analysis/UC09.md)
+10. [UC-10 Agregar vídeo existente](docs/analysis/UC10.md)
+11. [UC Diagram](docs/analysis/UC_Diagram.md)
+
+### Diagramas
+1. [Diagrama de Arquitectura](docs/design/arquitectura.md)
+2. [Diagrama de Componentes](docs/design/componentes.md)
+3. [Diagrama de Clases](docs/design/clases.md)
+4. [Diagrama de Secuencias](docs/design/secuencia.md)
 
 ### Presentation / Presentación
 1. [Presentación Etapa de Análisis](docs/analysis/presentation.pdf)
+2. [Presentación Etapa de Diseño](docs/design/presentation.pdf)
