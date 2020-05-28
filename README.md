@@ -1,4 +1,4 @@
-# SideProject - Entregable 2: Etapa de Diseño
+# SideProject - Entregable 2: Etapa de Diseño ([ver mas](#diagramas))
 
 ![](images/Apprendo_logo.png)
 
@@ -51,6 +51,7 @@
 10. [UC-10 Agregar vídeo existente](docs/analysis/UC10.md)
 11. [UC Diagram](docs/analysis/UC_Diagram.md)
 
+<a name="diagramas"></a>
 ### Diagramas
 1. [Diagrama de Arquitectura](docs/design/arquitectura.md)
 2. [Diagrama de Componentes](docs/design/componentes.md)
