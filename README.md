@@ -10,6 +10,9 @@
 |  4 | 201810516 | Morales Alcalde, Piero | 20% |
 |  5 | 201710418 | Cupe Guerrero, Carlos | 20% |
 
+## Sprint 1
+![](images/Sprint_1.png)
+
 ## Contenido
 ### [Glosario](docs/glossary.md)
 ### Lista de Requerimientos 
