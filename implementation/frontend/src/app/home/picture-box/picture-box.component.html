@@ -1,0 +1,8 @@
+<mat-card class="example-card">
+    <img mat-card-image [src]="setImage(item.image)" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <div *ngFor="let class of item.classifiers; index as i">
+        <p *ngIf="i < 5">{{class.tag}}: {{class.score}}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>

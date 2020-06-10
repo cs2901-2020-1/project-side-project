@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <div class="content">
+        <h1 class="title">Gallery</h1>
+        <hr>
+        <p>
+            Observa lo que comparten otras personas.
+        </p>
+        <div class="row">
+            <div *ngFor="let item of images" class="box">
+                <app-picture-box [item] = "item"></app-picture-box>
+            </div>
+        </div>
+    </div>
+</div>
