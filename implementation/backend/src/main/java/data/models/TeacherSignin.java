@@ -1,11 +1,11 @@
 package data.models;
 
-public class LoginWeb {
-
+public class TeacherSignin {
+    
     private String email;
     private String password;
 
-    public LoginWeb() {}
+    public TeacherSignin() {}
 
     public String getEmail() {
         return email;

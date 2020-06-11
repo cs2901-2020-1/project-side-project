@@ -15,11 +15,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-
 
 @Service(value = "userService")
 public class UserService implements UserDetailsService {
@@ -44,39 +41,8 @@ public class UserService implements UserDetailsService {
         return Arrays.asList(new SimpleGrantedAuthority(role.getName()));
     }
 
-    public List<Usuario> findAll() {
-        List<Usuario> list = new ArrayList<>();
-        repository.findAll().iterator().forEachRemaining(list::add);
-        return list;
-    }
-
-    public void delete(long id) {
-        repository.deleteById(id);
-    }
-
     public Usuario findOne(String username) {
         return repository.findUsuarioByEmail(username);
-    }
-
-    public Usuario findById(long id) {
-        Optional<Usuario> optionalUser = repository.findById(id);
-        return optionalUser.isPresent() ? optionalUser.get() : null;
-    }
-
-    public Usuario updatePassword(Long codigo) {
-        Usuario user = findById(codigo);
-        if(user != null) {
-            user.setPassword(bcryptEncoder.encode(user.getPassword()));
-            repository.save(user);
-        }
-        return user;
-    }
-
-    public Usuario save(Usuario user) {
-        Usuario newUser = new Usuario();
-        newUser.setEmail(user.getEmail());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-        return repository.save(newUser);
     }
 
     public String getUsername() {
