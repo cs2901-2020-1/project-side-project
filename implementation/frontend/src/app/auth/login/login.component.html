@@ -1,0 +1,54 @@
+<div style="height: 100vh;">
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic">
+          <img src="../../../assets/images/login_img.png" alt="login">
+        </div>       
+        
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login100-form">
+          <span class="login100-form-title">
+            Login
+          </span>
+
+          <div class="field">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <mat-icon matPrefix style="color: grey; margin-right: 15px;">email</mat-icon>
+              <input matInput type="text" formControlName="email" autocomplete="off">
+            </mat-form-field>
+          </div>
+      
+          <br>
+      
+          <div class="field">
+            <mat-form-field appearance="fill">
+              <mat-icon matPrefix style="color: grey; margin-right: 15px;">lock</mat-icon>
+              <mat-label>Contraseña</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
+              <!--
+                <button type="button" color="primary" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon style="color: grey;">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </button>
+              -->
+            </mat-form-field>
+          </div>
+      
+          <br>
+      
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" mat-raised-button type="submit" [disabled]="!loginForm.valid">Ingresar</button>
+          </div>
+
+          <div class="signin-button">
+						<a class="txt2" href="#">
+							Create your Account
+							<mat-icon style="font-size: 12px;">arrow_forward</mat-icon>
+						</a>
+					</div>
+      
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

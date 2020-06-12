@@ -7,6 +7,8 @@ import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
+import { MaterialModule } from './material.module';
 
 
 
@@ -18,8 +20,10 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
+    AuthModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MaterialModule,
     SharedModule.forRoot()
   ],
   providers: [],
