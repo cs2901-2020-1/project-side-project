@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { MaterialModule } from './material.module';
 import { VideoComponent } from './video/video.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,6 +23,7 @@ import { StudentDashboardComponent } from './student-dashboard/student-dashboard
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     HomeModule,
     AuthModule,

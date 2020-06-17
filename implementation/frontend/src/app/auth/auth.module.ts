@@ -5,6 +5,7 @@ import { MaterialModule } from '../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,6 +19,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es'},
