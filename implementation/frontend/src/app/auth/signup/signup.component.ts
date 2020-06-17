@@ -52,33 +52,61 @@ export class SignupComponent implements OnInit {
 
   onSignup() {
 
-    let request = {
-      'email': this.email.value,
-      'password': this.password.value,
-      'name': this.name.value,
-      'lastName': this.lastName.value,
-      'school': this.school.value,
-      'birthdate': this.birthdate.value
+    if (this.selection === 'student') {  
+      let request = {
+        'email': this.email.value,
+        'password': this.password.value,
+        'name': this.name.value,
+        'lastName': this.lastName.value,
+        'school': this.school.value,
+        'birthdate': this.birthdate.value
+      }
+  
+      this.authService.studentSignup(request)
+        .pipe()
+        .subscribe(
+          data => {
+            if (this.returnUrl == '/'){
+              this.router.navigate(['/dashboard']);
+            }else {
+              this.router.navigate([this.returnUrl]);
+            }
+          },
+          err => {
+            if (err.status == 409) {
+              this.openSnackBar('Este correo ya se encuentra registrado', 'Cerrar');
+            } else {
+              this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+            }
+          }
+        )
     }
 
-    this.authService.studentSignup(request)
-      .pipe()
-      .subscribe(
-        data => {
-          if (this.returnUrl == '/'){
-            this.router.navigate(['/dashboard']);
-          }else {
+    if (this.selection === 'teacher') {  
+      let request = {
+        'email': this.email.value,
+        'password': this.password.value,
+        'name': this.name.value,
+        'lastName': this.lastName.value,
+        'specialism': this.specialism.value,
+        'birthdate': this.birthdate.value
+      }
+  
+      this.authService.teacherSignup(request)
+        .pipe()
+        .subscribe(
+          data => {
             this.router.navigate([this.returnUrl]);
+          },
+          err => {
+            if (err.status == 409) {
+              this.openSnackBar('Este correo ya se encuentra registrado', 'Cerrar');
+            } else {
+              this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+            }
           }
-        },
-        err => {
-          if (err.status == 409) {
-            this.openSnackBar('Este correo ya se encuentra registrado', 'Cerrar');
-          } else {
-            this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
-          }
-        }
-      )
+        )
+    }
   }
 
   openSnackBar(message: string, action: string) {

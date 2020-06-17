@@ -46,11 +46,7 @@ export class LoginComponent implements OnInit {
       .pipe()
       .subscribe(
         data => {
-          if (this.returnUrl == '/'){
-            this.router.navigate(['/dashboard']);
-          }else {
-            this.router.navigate([this.returnUrl]);
-          }
+          this.router.navigate([this.returnUrl]);
         },
         err => {
           if (err.status == 401) {

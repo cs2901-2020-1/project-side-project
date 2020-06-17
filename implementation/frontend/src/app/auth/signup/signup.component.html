@@ -14,7 +14,8 @@
           <span>
             Registrate como:
           </span>
-
+          
+          <br>
           <br>
 
           <div class="selection-field">
@@ -133,8 +134,8 @@
           </div>
 
           <div class="signin-button">
-						<a class="txt2" href="#">
-							Create your Account
+						<a class="txt2" [routerLink]="['/login']">
+							¿Tienes una cuenta?
 							<mat-icon style="font-size: 12px;">arrow_forward</mat-icon>
 						</a>
 					</div>
@@ -144,3 +145,4 @@
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
