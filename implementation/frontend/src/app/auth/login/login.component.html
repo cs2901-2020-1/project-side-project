@@ -13,10 +13,14 @@
 
           <div class="field">
             <mat-form-field appearance="fill">
-              <mat-label>Email</mat-label>
+              <mat-label>Correo</mat-label>
               <mat-icon matPrefix style="color: grey; margin-right: 15px;">email</mat-icon>
               <input matInput type="text" formControlName="email" autocomplete="off">
             </mat-form-field>
+          </div>
+          <div *ngIf="(email.invalid && email.touched) || email.dirty">
+            <small *ngIf="email.errors?.required" class="text-danger">Correo es requerido</small>
+            <small *ngIf="email.errors?.pattern" class="text-danger">Por favor introduzca una dirección de correo valida</small>
           </div>
       
           <br>
@@ -33,6 +37,9 @@
               -->
             </mat-form-field>
           </div>
+          <div *ngIf="(password.invalid && password.touched) || password.dirty">
+            <small *ngIf="password.errors?.required" class="text-danger">Contraseña es requerida</small>
+          </div>
       
           <br>
       
@@ -42,7 +49,7 @@
 
           <div class="signin-button">
 						<a class="txt2" href="#">
-							Create your Account
+							Crea tu cuenta
 							<mat-icon style="font-size: 12px;">arrow_forward</mat-icon>
 						</a>
 					</div>

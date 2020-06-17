@@ -1,30 +1,30 @@
 :host {
-    text-align: center;
-    display: block;
+  text-align: center;
+  display: block;
 }
 
 form {
-    max-width: 350px;
-    margin: auto;  
+  max-width: 350px;
+  margin: auto;  
 }
 
 mat-form-field {
-    width: 100%;
-    color: #ffffff;
+  width: 100%;
+  color: #ffffff;
 }
 
 .formlogin{
-    position: absolute;
-    top:50%;
-    left:50%;
-    width: 300px;
-    margin-left: -150px;
-    height: 400px;
-    margin-top: -200px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  width: 300px;
+  margin-left: -150px;
+  height: 400px;
+  margin-top: -200px;
 }
 
 ::ng-deep.mat-form-field-ripple {
-    background-color: red !important;;
+    background-color: red !important;
 }
 
 
@@ -32,17 +32,29 @@ mat-form-field {
     color: black;
 }
 
+
+::ng-deep .mat-form-field-label {
+  color: rgba(0,0,0,.6) !important;
+}
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #f44336 !important;
+}
+
 .field {
-    background-color: #e6e6e6;
-    border-radius: 15px;
-    padding: 0px 20px;
-    padding-top: 0.5em;
+  background-color: #e6e6e6;
+  border-radius: 15px;
+  padding: 0px 20px;
+  padding-top: 0.5em;
 }
 
 .signin-button {
-    padding-top: 136px;
+  padding-top: 136px;
 }
 
+.text-danger {
+  color: red;
+}
 
 
 
@@ -413,5 +425,9 @@ iframe {
 @media (max-width: 576px) {
   .wrap-login100 {
     padding: 100px 15px 33px 15px;
+  }
+
+  .signin-button {
+      padding-top: 30px;
   }
 }

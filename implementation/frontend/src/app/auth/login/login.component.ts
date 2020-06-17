@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required,
+        Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+      ]],
       password: ['', Validators.required]
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -53,6 +55,8 @@ export class LoginComponent implements OnInit {
         err => {
           if (err.status == 401) {
             this.openSnackBar('Correo o contraseña inválido', 'Cerrar');
+          } else {
+            this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
           }
         }
       )
@@ -62,5 +66,13 @@ export class LoginComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 3000,
     });
+  }
+
+  get email(){
+    return this.loginForm.get('email')
+  }
+  
+  get password(){
+    return this.loginForm.get('password')
   }
 }
