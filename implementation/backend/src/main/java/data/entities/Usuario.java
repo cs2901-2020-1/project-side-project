@@ -11,7 +11,7 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private String email;
@@ -19,9 +19,21 @@ public class Usuario implements Serializable {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private String lastName;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rolId", nullable = true)
     private Role role;
+
+    @OneToOne(mappedBy = "user")
+    private Student student;
+
+    @OneToOne(mappedBy = "user")
+    private Teacher teacher;
 
     public Usuario() {}
 
@@ -55,5 +67,37 @@ public class Usuario implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return this.name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

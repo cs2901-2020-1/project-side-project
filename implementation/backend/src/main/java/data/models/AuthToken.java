@@ -4,12 +4,14 @@ public class AuthToken {
 
     private String userId;
     private String token;
+    private String role;
 
     public AuthToken() {}
 
-    public AuthToken(String userId, String token){
+    public AuthToken(String userId, String token, String role){
         this.userId = userId;
         this.token = token;
+        this.role = role;
     }
 
     public AuthToken(String token){
@@ -30,5 +32,13 @@ public class AuthToken {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

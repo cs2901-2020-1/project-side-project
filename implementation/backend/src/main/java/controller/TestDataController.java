@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.entities.Role;
-import data.entities.Usuario;
+import data.models.StudentSignup;
+import data.models.TeacherSignup;
 import services.RoleService;
-import services.UserService;
+import services.UsuarioService;
 
 @RestController
 @RequestMapping("/test")
@@ -21,31 +22,35 @@ public class TestDataController {
     private RoleService roleService;
 
     @Autowired
-    private UserService userService;
+    private UsuarioService usuarioService;
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public String createRoles(){
         
         if (roleService.findOneByName("TEACHER") == null) {
-            Role teacher = new Role("TEACHER");
-            teacher = roleService.create(teacher);
+            Role rTeacher = new Role("TEACHER");
+            roleService.create(rTeacher);
 
-            Usuario uTeacher = new Usuario();
-            uTeacher.setEmail("ccupe@utec.edu.pe");
-            uTeacher.setPassword("123456");
-            uTeacher.setRole(teacher);
-            userService.updatePasswordByObject(uTeacher);
+            TeacherSignup teacher = new TeacherSignup();
+            teacher.setEmail("ccupe@utec.edu.pe");
+            teacher.setPassword("123456");
+            teacher.setName("Carlos");
+            teacher.setLastName("Cupe");
+            teacher.setSchool("UTEC");
+            usuarioService.createTeacher(teacher);
         }
 
         if (roleService.findOneByName("STUDENT") == null) {
-            Role student = new Role("STUDENT");
-            student = roleService.create(student);
+            Role rStudent = new Role("STUDENT");
+            roleService.create(rStudent);
 
-            Usuario uStudent = new Usuario();
-            uStudent.setEmail("carlos.cupe@utec.edu.pe");
-            uStudent.setPassword("123456");
-            uStudent.setRole(student);
-            userService.updatePasswordByObject(uStudent);
+            StudentSignup student = new StudentSignup();
+            student.setEmail("carlos.cupe@utec.edu.pe");
+            student.setPassword("123456");
+            student.setName("Carlos");
+            student.setLastName("Cupe");
+            student.setSchool("CMSPP");
+            usuarioService.createStudent(student);
         }
         return "OK";
     }

@@ -1,7 +1,7 @@
 package services;
 
-import data.entities.Role;
-import data.repositories.RoleRepository;
+import data.entities.Teacher;
+import data.repositories.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,29 +11,25 @@ import java.util.List;
 
 @Service
 @Transactional
-public class RoleService {
+public class TeacherService {
 
     @Autowired
-    private RoleRepository repository;
+    private TeacherRepository repository;
 
-    public List<Role> findAll(){
-        List<Role> items = new ArrayList<>();
+    public List<Teacher> findAll(){
+        List<Teacher> items = new ArrayList<>();
 
-        for (Role item :repository.findAll()) {
+        for (Teacher item :repository.findAll()) {
             items.add(item);
         }
         return items;
     }
 
-    public Role findOneByName(String name){
-        return repository.findRoleByName(name);
-    }
-
-    public Role findOne(Long id){
+    public Teacher findOne(Long id){
         return repository.findById(id).get();
     }
 
-    public Role create(Role item){
+    public Teacher create(Teacher item){
         return repository.save(item);
     }
 

@@ -35,26 +35,29 @@ public class AuthenticationController {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUser.getEmail(), loginUser.getPassword()));
         final Usuario user = userService.findOne(loginUser.getEmail());
         final String token = jwtTokenUtil.generateToken(user);
-        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token), HttpStatus.OK);
+        final String role = user.getRole().getName();
+        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token, role), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/student", method = RequestMethod.POST)
-    public ResponseEntity<?> webStudentSignin(@RequestBody StudentSignin student) {
+    public ResponseEntity<?> webStudentSignin(@RequestBody StudentSignup student) {
         if (usuarioService.findOneByEmail(student.getEmail()) != null) {
             return new ResponseEntity<>("Correo ya existente", HttpStatus.CONFLICT);    
         }
         final Usuario user = usuarioService.createStudent(student);
         final String token = jwtTokenUtil.generateToken(user);
-        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token), HttpStatus.OK);
+        final String role = user.getRole().getName();
+        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token, role), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/teacher", method = RequestMethod.POST)
-    public ResponseEntity<?> webTeacherSignin(@RequestBody TeacherSignin teacher) {
+    public ResponseEntity<?> webTeacherSignin(@RequestBody TeacherSignup teacher) {
         if (usuarioService.findOneByEmail(teacher.getEmail()) != null) {
             return new ResponseEntity<>("Correo ya existente", HttpStatus.CONFLICT);    
         }
         final Usuario user = usuarioService.createTeacher(teacher);
         final String token = jwtTokenUtil.generateToken(user);
-        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token), HttpStatus.OK);
+        final String role = user.getRole().getName();
+        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token, role), HttpStatus.OK);
     }
 }

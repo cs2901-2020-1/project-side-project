@@ -10,10 +10,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import data.entities.Role;
+import data.entities.Student;
+import data.entities.Teacher;
 import data.entities.Usuario;
-import data.models.StudentSignin;
-import data.models.TeacherSignin;
-import data.repositories.RoleRepository;
+import data.models.*;
 import data.repositories.UsuarioRepository;
 
 @Service
@@ -24,7 +24,13 @@ public class UsuarioService {
     private UsuarioRepository repository;
 
     @Autowired
-    private RoleRepository roleRepository;
+    private RoleService roleService;
+
+    @Autowired
+    private StudentService studentService;
+
+    @Autowired
+    private TeacherService teacherService;
 
     @Autowired
     private BCryptPasswordEncoder bcryptEncoder;
@@ -42,30 +48,36 @@ public class UsuarioService {
         return repository.findUsuarioByEmail(email);
     }
 
-    public Usuario findOne(long id){
+    public Usuario findOne(Long id){
         return repository.findById(id).get();
     }
 
-    public Usuario createStudent(StudentSignin user) {
-        Usuario newUser = new Usuario();
-        newUser.setEmail(user.getEmail());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+    public Usuario createStudent(StudentSignup studentSignup) {
+        Role role = roleService.findOneByName("STUDENT");
+        Usuario user = studentSignup.getUsuario();
+        user.setPassword(bcryptEncoder.encode(user.getPassword()));
+        user.setRole(role);
 
-        Role role = roleRepository.findRoleByName("STUDENT");
-        newUser.setRole(role);
+        Student student = studentSignup.getStudent();
+        user.setStudent(student);
+        student.setUser(user);
 
-        return repository.save(newUser);
+        studentService.create(student);
+        return user;
     }
 
-    public Usuario createTeacher(TeacherSignin user) {
-        Usuario newUser = new Usuario();
-        newUser.setEmail(user.getEmail());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+    public Usuario createTeacher(TeacherSignup teacherSignup) {
+        Role role = roleService.findOneByName("TEACHER");
+        Usuario user = teacherSignup.getUsuario();
+        user.setPassword(bcryptEncoder.encode(user.getPassword()));
+        user.setRole(role);
 
-        Role role = roleRepository.findRoleByName("TEACHER");
-        newUser.setRole(role);
-        
-        return repository.save(newUser);
+        Teacher teacher = teacherSignup.getTeacher();
+        user.setTeacher(teacher);
+        teacher.setUser(user);
+
+        teacherService.create(teacher);
+        return user;
     }
 
     public void delete(Long id){
