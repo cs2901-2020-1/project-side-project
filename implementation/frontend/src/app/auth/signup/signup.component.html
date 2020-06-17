@@ -1,0 +1,146 @@
+<div style="height: 100vh;">
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic">
+          <img src="../../../assets/images/login_img.png" alt="login">
+        </div>       
+        
+        <form [formGroup]="signupForm" (ngSubmit)="onSignup()" class="login100-form">
+          <span class="login100-form-title">
+            Signup
+          </span>
+
+          <span>
+            Registrate como:
+          </span>
+
+          <br>
+
+          <div class="selection-field">
+            <div class="left-selection" mat-raised-button (click)="select('student')" [ngClass] = "selection == 'student' ? 'selected':''">
+              <mat-label>Estudiante</mat-label>
+            </div>
+            <div class="right-selection" mat-raised-button (click)="select('teacher')" [ngClass] = "selection == 'teacher' ? 'selected':''">
+              <mat-label>Profesor</mat-label>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="field">
+            <mat-form-field appearance="fill">
+              <mat-label>Correo</mat-label>
+              <input matInput type="text" formControlName="email" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div *ngIf="(email.invalid && email.touched) || email.dirty">
+            <small *ngIf="email.errors?.required" class="text-danger">Correo es requerido</small>
+            <small *ngIf="email.errors?.pattern" class="text-danger">Por favor introduzca una dirección de correo valida</small>
+          </div>
+      
+          <br>
+      
+          <div class="field">
+            <mat-form-field appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
+                <button type="button" color="primary" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon style="color: grey;">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </button>
+            </mat-form-field>
+          </div>
+          <div *ngIf="(password.invalid && password.touched) || password.dirty">
+            <small *ngIf="password.errors?.required" class="text-danger">Contraseña es requerida</small>
+          </div>
+
+          <br>
+
+          <div class="field">
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input matInput type="text" formControlName="name" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div *ngIf="(name.invalid && name.touched) || name.dirty">
+            <small *ngIf="name.errors?.required" class="text-danger">Nombre es requerido</small>
+          </div>
+
+          <br>
+
+          <div class="field">
+            <mat-form-field appearance="fill">
+              <mat-label>Apellido</mat-label>
+              <input matInput type="text" formControlName="lastName" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div *ngIf="(lastName.invalid && lastName.touched) || lastName.dirty">
+            <small *ngIf="lastName.errors?.required" class="text-danger">Apellido es requerido</small>
+          </div>
+
+          <br>
+
+          <div class="field">
+            <mat-form-field appearance="fill">
+              <mat-label>Colegio</mat-label>
+              <input matInput type="text" formControlName="school" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div *ngIf="(school.invalid && school.touched) || school.dirty">
+            <small *ngIf="school.errors?.required" class="text-danger">Colegio es requerido</small>
+          </div>
+
+          <br>
+
+          <div class="field" *ngIf="selection == 'student'">
+            <mat-form-field appearance="fill">
+              <mat-label>Año Escolar</mat-label>
+              <input matInput type="text" formControlName="schoolYear" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div *ngIf="(schoolYear.invalid && schoolYear.touched) || schoolYear.dirty">
+            <small *ngIf="schoolYear.errors?.required" class="text-danger">Año escolar es requerido</small>
+          </div>
+
+          <div class="field" *ngIf="selection == 'teacher'">
+            <mat-form-field appearance="fill">
+              <mat-label>Especialidad</mat-label>
+              <input matInput type="text" formControlName="specialism" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div *ngIf="(specialism.invalid && specialism.touched) || specialism.dirty">
+            <small *ngIf="specialism.errors?.required" class="text-danger">Especialidad es requerida</small>
+          </div>
+
+          <br>
+
+          <div class="field">
+            <mat-form-field>
+              <mat-label>Fecha de Nacimiento</mat-label>
+              <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="birthdate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div *ngIf="(birthdate.invalid && birthdate.touched) || birthdate.dirty">
+            <small *ngIf="birthdate.errors?.required" class="text-danger">Fecha de nacimiento es requerida</small>
+          </div>
+
+          <br>
+      
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" mat-raised-button type="submit" [disabled]="!signupForm.valid">Ingresar</button>
+          </div>
+
+          <div class="signin-button">
+						<a class="txt2" href="#">
+							Create your Account
+							<mat-icon style="font-size: 12px;">arrow_forward</mat-icon>
+						</a>
+					</div>
+      
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
