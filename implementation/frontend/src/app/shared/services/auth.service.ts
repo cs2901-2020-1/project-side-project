@@ -33,6 +33,29 @@ export class AuthService {
             .pipe(map(user => {
                 if (user && user.token) {
                     localStorage.setItem('currentUserToken', user.token);
+                    localStorage.setItem('currentUserRole', user.role);
+                }
+            }
+        ));
+    }
+
+    studentSignup(request: any) {
+        return this.http.post<any>(AuthService.path + '/student', request)
+            .pipe(map(user => {
+                if (user && user.token) {
+                    localStorage.setItem('currentUserToken', user.token);
+                    localStorage.setItem('currentUserRole', user.role);
+                }
+            }
+        ));
+    }
+
+    teacherSignup(request: any) {
+        return this.http.post<any>(AuthService.path + '/teacher', request)
+            .pipe(map(user => {
+                if (user && user.token) {
+                    localStorage.setItem('currentUserToken', user.token);
+                    localStorage.setItem('currentUserRole', user.role);
                 }
             }
         ));
@@ -40,7 +63,12 @@ export class AuthService {
 
     logout() {
         localStorage.removeItem('currentUserToken');
-        this.router.navigate(['/login']);
+        localStorage.removeItem('currentUserRole');
+        this.router.navigate(['/']);
+    }
+
+    public currentUserRol(): string {
+        return localStorage.getItem('currentUserRol');
     }
 
     getTokenExpirationDate(token: string): Date {
