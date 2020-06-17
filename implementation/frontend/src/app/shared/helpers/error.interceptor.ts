@@ -10,13 +10,13 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     constructor(private authenticationService: AuthService, private router: Router){}
     
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(catchError((err: HttpErrorResponse) => {
+    intercept(request: HttpRequest<any>, next: HttpHandler): any {
+    return next.handle(request).pipe(catchError((err: any) => {
             if (err.status === 401) {
                 this.router.navigate(['/']);  
             }
             const error = err.error.message || err.statusText;
-            return throwError(error);
+            return err;
         }))
     }
 }
