@@ -4,12 +4,13 @@ import { IndexComponent } from './home/index/index.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { VideoComponent } from './video/video.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent
+    component: StudentDashboardComponent
   },
   {
     path: 'login',
