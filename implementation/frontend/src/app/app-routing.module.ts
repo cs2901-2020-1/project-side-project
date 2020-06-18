@@ -5,7 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { VideoComponent } from './video/video.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
-
+import { TemasComponent } from './temas/temas.component';
 
 const routes: Routes = [
   {
@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'video',
     component: VideoComponent
+  },
+  {
+    path: 'temas',
+    component: TemasComponent
   },
   {
     path: '**',
