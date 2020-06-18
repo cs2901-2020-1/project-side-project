@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from '../shared/services';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentDashboardComponent implements OnInit {
 
-  constructor() { }
+  courses: any;
+
+  constructor(
+      private courseService: CourseService,
+      public snackBar: MatSnackBar) {
+    this.courseService.getAll()
+      .pipe()
+      .subscribe(
+        data => {
+          this.courses = data;
+          console.log(data)
+        },
+        err => {
+          this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+        }
+      )
+  }
 
   ngOnInit(): void {
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
 }

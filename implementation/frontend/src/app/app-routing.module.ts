@@ -21,11 +21,11 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
-    path: 'video',
+    path: 'video/:id',
     component: VideoComponent
   },
   {
-    path: 'temas',
+    path: 'tema/:id',
     component: TemasComponent
   },
   {
