@@ -6,10 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import data.entities.Course;
 import data.entities.Role;
+import data.entities.Topic;
+import data.models.AppRequest;
 import data.models.StudentSignup;
 import data.models.TeacherSignup;
+import services.CourseService;
 import services.RoleService;
+import services.TopicService;
 import services.UsuarioService;
 
 @RestController
@@ -23,6 +28,12 @@ public class TestDataController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private CourseService courseService;
+
+    @Autowired
+    private TopicService topicService;
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public String createRoles(){
@@ -55,4 +66,59 @@ public class TestDataController {
         return "OK";
     }
 
+    @RequestMapping(value = "/video", method = RequestMethod.GET)
+    public String createData(){
+        Course c1 = new Course();
+        c1.setName("Matematica");
+        courseService.create(c1);
+
+        Topic t1 = new Topic();
+        t1.setName("Polinomios");
+        t1.setDescription("Definición de polinomio, aritmetica polinomial, suma y resta de polinomios, multiplicación de polinomios");
+        t1.setCourse(c1);
+        topicService.create(t1);
+
+        Topic t2 = new Topic();
+        t2.setName("Factorización de polinomios");
+        t2.setDescription("Factorizando monomios, Factores comunes de binomios y trinomios, factorizando polinomios de grado superior");
+        t2.setCourse(c1);
+        topicService.create(t2);
+
+        Topic t3 = new Topic();
+        t3.setName("División polinomial");
+        t3.setDescription("Métodos para dividir polinomios, Teorema del resto, dividiendo polinomios por factores lineales");
+        t3.setCourse(c1);
+        topicService.create(t3);
+
+
+        Course c2 = new Course();
+        c2.setName("Física");
+        courseService.create(c2);
+
+        Topic t4 = new Topic();
+        t4.setName("Cinemática");
+        t4.setDescription("Movimiento rectilineo, vectores movimiento curvilineo");
+        t4.setCourse(c1);
+        topicService.create(t4);
+
+        Topic t5 = new Topic();
+        t5.setName("Leyes de Newton");
+        t5.setDescription("Primera, Segunda y tercera ley de Newton");
+        t5.setCourse(c2);
+        topicService.create(t5);
+
+        Topic t6 = new Topic();
+        t6.setName("Leyes de Conservación");
+        t6.setDescription("Conservación de la energia, trabajo, potencia. Conservación de la cantidad de movimiento");
+        t6.setCourse(c2);
+        topicService.create(t6);
+        
+
+        AppRequest ap1 = new AppRequest();
+        ap1.setTitle("Titulo");
+        ap1.setDescription("Descripcion");
+        ap1.setVideoPath("video.mp4");
+        ap1.setTopicId(t1.getId());
+        return "OK";
+    }
 }

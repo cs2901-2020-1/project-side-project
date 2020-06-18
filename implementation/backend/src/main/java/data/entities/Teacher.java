@@ -14,13 +14,10 @@ public class Teacher implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @Column
     private String school;
 
-    @Column
     private String specialism;
-
-    @Column
+    
     private Date birthdate;
 
     @OneToOne(cascade = CascadeType.ALL)
