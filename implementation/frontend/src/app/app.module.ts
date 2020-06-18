@@ -12,6 +12,7 @@ import { MaterialModule } from './material.module';
 import { VideoComponent } from './video/video.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { RouterModule } from '@angular/router';
+import { TemasComponent } from './temas/temas.component';
 
 
 
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     VideoComponent,
-    StudentDashboardComponent
+    StudentDashboardComponent,
+    TemasComponent
   ],
   imports: [
     BrowserModule,
