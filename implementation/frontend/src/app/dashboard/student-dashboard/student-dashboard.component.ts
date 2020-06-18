@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseService } from '../shared/services';
+import { CourseService } from 'src/app/shared/services';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

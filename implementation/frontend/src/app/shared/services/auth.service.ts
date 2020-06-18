@@ -67,8 +67,8 @@ export class AuthService {
         this.router.navigate(['/']);
     }
 
-    public currentUserRol(): string {
-        return localStorage.getItem('currentUserRol');
+    public currentUserRole(): string {
+        return localStorage.getItem('currentUserRole');
     }
 
     getTokenExpirationDate(token: string): Date {

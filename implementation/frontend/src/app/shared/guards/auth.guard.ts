@@ -29,7 +29,14 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad{
     }
 
     checkLogin(url: string){
+        let role = this.authService.currentUserRole();
+        
+        if (role == null) {
+            return true;
+        }
+
         if (!this.authService.isTokenExpired()) {
+            this.router.navigate(['/dashboard']);
             return true;
         }
         this.router.navigate(['/login'], { queryParams: { returnUrl: url }});
