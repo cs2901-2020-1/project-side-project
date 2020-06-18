@@ -2,6 +2,10 @@ a:hover {
 text-decoration: none;
 }
 
+.custom-navbar {
+    margin-left: 20px;
+}
+
 .titulo-tema {
 color: #1F1F1F;
 }
@@ -12,11 +16,11 @@ opacity: 0.4;
 }
 
 .site-header {
-min-height: 60px;
 border-bottom: 1px solid #ECEDEF;
 background: #FFFFFF;
 }
 
 .apprendo-nav {
-font-size: 1.5rem;
+font-size: 2rem;
+line-height: 40px
 }
