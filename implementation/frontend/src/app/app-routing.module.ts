@@ -4,16 +4,18 @@ import { IndexComponent } from './home/index/index.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { VideoComponent } from './video/video.component';
-import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { StudentDashboardComponent } from './dashboard/student-dashboard/student-dashboard.component';
 import { TemasComponent } from './temas/temas.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent
+    component: IndexComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'student',
+    path: 'dashboard',
     component: StudentDashboardComponent
   },
   {

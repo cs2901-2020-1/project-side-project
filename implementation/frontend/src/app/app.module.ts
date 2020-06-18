@@ -10,9 +10,9 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { MaterialModule } from './material.module';
 import { VideoComponent } from './video/video.component';
-import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { RouterModule } from '@angular/router';
 import { TemasComponent } from './temas/temas.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 
@@ -20,7 +20,6 @@ import { TemasComponent } from './temas/temas.component';
   declarations: [
     AppComponent,
     VideoComponent,
-    StudentDashboardComponent,
     TemasComponent
   ],
   imports: [
@@ -28,6 +27,7 @@ import { TemasComponent } from './temas/temas.component';
     RouterModule,
     AppRoutingModule,
     HomeModule,
+    DashboardModule,
     AuthModule,
     BrowserAnimationsModule,
     HttpClientModule,
