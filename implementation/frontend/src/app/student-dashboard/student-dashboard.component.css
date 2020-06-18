@@ -1,0 +1,22 @@
+a:hover {
+text-decoration: none;
+}
+
+.titulo-tema {
+color: #1F1F1F;
+}
+
+.tema-descripcion {
+color: #000000;
+opacity: 0.4;
+}
+
+.site-header {
+min-height: 60px;
+border-bottom: 1px solid #ECEDEF;
+background: #FFFFFF;
+}
+
+.apprendo-nav {
+font-size: 1.5rem;
+}
