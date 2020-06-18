@@ -10,6 +10,10 @@ import { TemasComponent } from './temas/temas.component';
 const routes: Routes = [
   {
     path: '',
+    component: IndexComponent
+  },
+  {
+    path: 'student',
     component: StudentDashboardComponent
   },
   {

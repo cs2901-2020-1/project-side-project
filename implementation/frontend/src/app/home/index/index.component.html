@@ -1,37 +1,16 @@
 <app-navbar></app-navbar>
-<div class="animation-area" id="home">
-  <ul class="box-area">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-  <div class="wrapper">
-    <div>
-      <div class="title-area">
-        <h1>
-          Prueba tu mismo, sube tus propias imagenes
-        </h1>
+
+<section class="top">
+  <div class="info">
+      <h1>Los mejores recursos para tu aprendizaje escolar</h1>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis commodi corrupti iure? Reprehenderit commodi ex molestiae ab?</p>
+      <div class="enlaces">
+          <a href="/signup">
+              Únete ahora
+          </a>
       </div>
-      <div class="file-upload">
-        <input type="file" (change)="onFileChange($event)" />
-        <mat-icon>backup</mat-icon>
-        <p>Cargar Imagen</p>
-      </div>
-      <p class="format-supported">Formatos soportados (*.png, *.jpg, *.jpeg)</p>
-    </div>
   </div>
-  <div class="wrapper"  *ngIf="waiting">
-    <div>
-      <div class="title-area">
-        <mat-spinner style="margin: 0 auto;"></mat-spinner>
-        <h1 style="margin-top: 50px;">
-          Cargando
-        </h1>
-      </div>
-    </div>
+  <div class="image">
+      <img src="../../../assets/images/book_lover.svg" alt="">
   </div>
-  
-</div>
+</section>
