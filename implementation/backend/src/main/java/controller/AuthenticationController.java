@@ -36,7 +36,8 @@ public class AuthenticationController {
         final Usuario user = userService.findOne(loginUser.getEmail());
         final String token = jwtTokenUtil.generateToken(user);
         final String role = user.getRole().getName();
-        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token, role), HttpStatus.OK);
+        final String fullName = user.getName() + ' ' + user.getLastName();
+        return new ResponseEntity<>(new AuthToken(user.getId().toString(), fullName, token, role), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/student", method = RequestMethod.POST)
@@ -47,7 +48,8 @@ public class AuthenticationController {
         final Usuario user = usuarioService.createStudent(student);
         final String token = jwtTokenUtil.generateToken(user);
         final String role = user.getRole().getName();
-        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token, role), HttpStatus.OK);
+        final String fullName = user.getName() + ' ' + user.getLastName();
+        return new ResponseEntity<>(new AuthToken(user.getId().toString(), fullName, token, role), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/teacher", method = RequestMethod.POST)
@@ -58,6 +60,7 @@ public class AuthenticationController {
         final Usuario user = usuarioService.createTeacher(teacher);
         final String token = jwtTokenUtil.generateToken(user);
         final String role = user.getRole().getName();
-        return new ResponseEntity<>(new AuthToken(user.getId().toString(), token, role), HttpStatus.OK);
+        final String fullName = user.getName() + ' ' + user.getLastName();
+        return new ResponseEntity<>(new AuthToken(user.getId().toString(), fullName, token, role), HttpStatus.OK);
     }
 }

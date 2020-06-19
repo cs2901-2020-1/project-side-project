@@ -3,14 +3,16 @@ package data.models;
 public class AuthToken {
 
     private String userId;
+    private String fullName;
     private String token;
     private String role;
 
     public AuthToken() {}
 
-    public AuthToken(String userId, String token, String role){
+    public AuthToken(String userId, String fullName, String token, String role){
         this.userId = userId;
         this.token = token;
+        this.fullName = fullName;
         this.role = role;
     }
 
@@ -32,6 +34,14 @@ public class AuthToken {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getRole() {
