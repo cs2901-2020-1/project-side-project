@@ -6,8 +6,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.hibernate.annotations.Type;
 
+import data.models.CommentModel;
+import data.models.LessonModel;
+
 import java.io.Serializable;
-//import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "lesson")
@@ -30,13 +35,16 @@ public class Lesson implements Serializable {
 
     private String documentPath;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", nullable = false)
     private Topic topic;
 
     @OneToOne(mappedBy = "lesson")
     private AppLesson appLesson;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "lesson", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Comment> comments;
 
     public Lesson() {}
 
@@ -80,6 +88,7 @@ public class Lesson implements Serializable {
         this.documentPath = documentPath;
     }
 
+    @JsonIgnore
     public Topic getTopic() {
         return topic;
     }
@@ -94,5 +103,33 @@ public class Lesson implements Serializable {
 
     public void setAppLesson(AppLesson appLesson) {
         this.appLesson = appLesson;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public LessonModel getModel() {
+        LessonModel model = new LessonModel();
+
+        model.setTitle(title);
+        model.setDescription(description);
+
+        model.setVideoPath(videoPath);
+        model.setDocumentPath(documentPath);
+
+        List<CommentModel> items = new ArrayList<>();
+
+        for (Comment comment : comments) {
+            items.add(comment.getModel());
+        }
+        
+        model.setComments(items);
+
+        return model;
     }
 }

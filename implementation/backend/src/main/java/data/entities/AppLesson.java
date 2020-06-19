@@ -2,6 +2,8 @@ package data.entities;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
@@ -19,13 +21,13 @@ public class AppLesson implements Serializable {
 
     private Boolean approved;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "lesson_id", referencedColumnName = "id")
-    private Lesson lesson;
-
     @Column(updatable = false)
     @CreationTimestamp
     private Date applicationDate;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "lesson_id", referencedColumnName = "id", nullable = true)
+    private Lesson lesson;
 
     public AppLesson() {}
 
@@ -45,19 +47,20 @@ public class AppLesson implements Serializable {
         this.approved = approved;
     }
 
-    public Lesson getLesson() {
-        return lesson;
-    }
-
-    public void setLesson(Lesson lesson) {
-        this.lesson = lesson;
-    }
-
     public Date getApplicationDate() {
         return applicationDate;
     }
 
     public void setApplicationDate(Date applicationDate) {
         this.applicationDate = applicationDate;
+    }
+
+    @JsonIgnore
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
     }
 }

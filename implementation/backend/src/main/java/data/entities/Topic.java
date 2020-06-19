@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.hibernate.annotations.Type;
+
 import java.io.Serializable;
 import java.util.Set;
 
@@ -20,6 +22,8 @@ public class Topic implements Serializable {
     @Column(nullable = false)
     private String name;
 
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     private String description;
 
     @JsonIgnore

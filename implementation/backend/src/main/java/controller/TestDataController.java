@@ -13,6 +13,7 @@ import data.models.AppRequest;
 import data.models.StudentSignup;
 import data.models.TeacherSignup;
 import services.CourseService;
+import services.LessonService;
 import services.RoleService;
 import services.TopicService;
 import services.UsuarioService;
@@ -34,6 +35,9 @@ public class TestDataController {
 
     @Autowired
     private TopicService topicService;
+
+    @Autowired
+    private LessonService lessonService;
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public String createRoles(){
@@ -68,6 +72,7 @@ public class TestDataController {
 
     @RequestMapping(value = "/video", method = RequestMethod.GET)
     public String createData(){
+        
         Course c1 = new Course();
         c1.setName("Matematica");
         courseService.create(c1);
@@ -119,6 +124,16 @@ public class TestDataController {
         ap1.setDescription("Descripcion");
         ap1.setVideoPath("video.mp4");
         ap1.setTopicId(t1.getId());
+        
+        lessonService.createAppLesson(ap1);
+
+        AppRequest ap2 = new AppRequest();
+        ap2.setTitle("Introducción a los polinomios");
+        ap2.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap2.setVideoPath("video.mp4");
+        ap2.setTopicId(t2.getId());
+        
+        lessonService.createAppLesson(ap2);
         return "OK";
     }
 }

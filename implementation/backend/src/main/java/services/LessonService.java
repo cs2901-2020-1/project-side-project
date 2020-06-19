@@ -1,9 +1,12 @@
 package services;
 
 import data.entities.AppLesson;
+import data.entities.Comment;
 import data.entities.Lesson;
 import data.entities.Topic;
+import data.entities.Usuario;
 import data.models.AppRequest;
+import data.models.CommentRequest;
 import data.repositories.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +27,12 @@ public class LessonService {
 
     @Autowired
     private TopicService topicService;
+
+    @Autowired
+    private UsuarioService usuarioService;
+
+    @Autowired
+    private CommentService commentService;
 
     public List<Lesson> findAll(){
         List<Lesson> items = new ArrayList<>();
@@ -47,12 +56,36 @@ public class LessonService {
         Lesson lesson = appRequest.getLesson();
         AppLesson appLesson = new AppLesson();
 
-        lesson.setAppLesson(appLesson);
         lesson.setTopic(topic);
+        create(lesson);
+
+        lesson.setAppLesson(appLesson);
         appLesson.setLesson(lesson);
 
         appLessonService.create(appLesson);
         return lesson;
+    }
+
+    public Comment commentLesson(CommentRequest commentRequest) {
+        Usuario user = usuarioService.findOne(commentRequest.getUserId());
+        if (user == null) {
+            return null;
+        }
+
+        Lesson lesson = findOne(commentRequest.getLessonId());
+        if (lesson == null) {
+            return null;
+        }
+
+        Comment comment = new Comment();
+
+        comment.setContent(commentRequest.getContent());
+        comment.setLesson(lesson);
+        comment.setUser(user);
+
+        commentService.create(comment);
+
+        return comment;
     }
 
     public void delete(Long id){

@@ -36,7 +36,7 @@ public class AuthenticationController {
         final Usuario user = userService.findOne(loginUser.getEmail());
         final String token = jwtTokenUtil.generateToken(user);
         final String role = user.getRole().getName();
-        final String fullName = user.getName() + ' ' + user.getLastName();
+        final String fullName = user.getFullName();
         return new ResponseEntity<>(new AuthToken(user.getId().toString(), fullName, token, role), HttpStatus.OK);
     }
 
@@ -48,7 +48,7 @@ public class AuthenticationController {
         final Usuario user = usuarioService.createStudent(student);
         final String token = jwtTokenUtil.generateToken(user);
         final String role = user.getRole().getName();
-        final String fullName = user.getName() + ' ' + user.getLastName();
+        final String fullName = user.getFullName();
         return new ResponseEntity<>(new AuthToken(user.getId().toString(), fullName, token, role), HttpStatus.OK);
     }
 
@@ -60,7 +60,7 @@ public class AuthenticationController {
         final Usuario user = usuarioService.createTeacher(teacher);
         final String token = jwtTokenUtil.generateToken(user);
         final String role = user.getRole().getName();
-        final String fullName = user.getName() + ' ' + user.getLastName();
+        final String fullName = user.getFullName();
         return new ResponseEntity<>(new AuthToken(user.getId().toString(), fullName, token, role), HttpStatus.OK);
     }
 }

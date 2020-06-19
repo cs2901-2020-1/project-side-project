@@ -1,7 +1,11 @@
 package data.entities;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "usuario")
@@ -34,6 +38,10 @@ public class Usuario implements Serializable {
 
     @OneToOne(mappedBy = "user")
     private Teacher teacher;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Comment> comments;
 
     public Usuario() {}
 
@@ -85,6 +93,10 @@ public class Usuario implements Serializable {
         this.lastName = lastName;
     }
 
+    public String getFullName() {
+        return this.name + " " + this.lastName;
+    }
+
     public Student getStudent() {
         return student;
     }
@@ -99,5 +111,13 @@ public class Usuario implements Serializable {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 }
