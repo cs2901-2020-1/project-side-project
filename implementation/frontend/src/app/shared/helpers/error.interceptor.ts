@@ -12,10 +12,11 @@ export class ErrorInterceptor implements HttpInterceptor {
     
     intercept(request: HttpRequest<any>, next: HttpHandler): any {
     return next.handle(request).pipe(catchError((err: any) => {
+            /*
             if (err.status === 401) {
                 this.router.navigate(['/']);  
             }
-            const error = err.error.message || err.statusText;
+            const error = err.error.message || err.statusText;*/
             return err;
         }))
     }

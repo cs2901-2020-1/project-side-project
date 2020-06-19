@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
     providedIn: 'root',
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class LogicGuard implements CanActivate, CanActivateChild {
     constructor(private authService: AuthService, private router: Router){}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -24,10 +24,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
 
     checkLogin(url: string){
-        if (!this.authService.isTokenExpired()) {
+        if (this.authService.isTokenExpired()) {
             return true;
         }
-        this.authService.logout()
+        this.router.navigate(['/dashboard']);
         return false;
     }
 }
