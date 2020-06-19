@@ -24,17 +24,17 @@
           </div>
       
           <br>
-      
+          
           <div class="field">
             <mat-form-field appearance="fill">
               <mat-icon matPrefix style="color: grey; margin-right: 15px;">lock</mat-icon>
               <mat-label>Contraseña</mat-label>
               <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
-              <!--
+              
                 <button type="button" color="primary" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon style="color: grey;">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
                 </button>
-              -->
+              
             </mat-form-field>
           </div>
           <div *ngIf="(password.invalid && password.touched) || password.dirty">
