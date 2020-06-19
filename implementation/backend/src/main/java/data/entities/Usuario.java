@@ -78,7 +78,7 @@ public class Usuario implements Serializable {
     }
 
     public String getLastName() {
-        return this.name;
+        return this.lastName;
     }
 
     public void setLastName(String lastName) {

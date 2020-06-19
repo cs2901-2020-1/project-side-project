@@ -159,6 +159,7 @@ main {
 
 .profesor a {
     display: inline-block;
+    width: 100%;
     padding: 10px 25px;
     margin-top: 5px;
     text-decoration: none;
@@ -167,6 +168,7 @@ main {
     border-radius: 8px;
     border: 1px solid #c6c6c6;
     transition: all ease .3s;
+    cursor: inherit;
 }
 
 .profesor a:hover {
