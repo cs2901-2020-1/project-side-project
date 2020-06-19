@@ -67,10 +67,10 @@ public class TestDataController {
             student.setSchool("CMSPP");
             usuarioService.createStudent(student);
         }
+        createData();
         return "OK";
     }
 
-    @RequestMapping(value = "/video", method = RequestMethod.GET)
     public String createData(){
         
         Course c1 = new Course();
@@ -120,20 +120,39 @@ public class TestDataController {
         
 
         AppRequest ap1 = new AppRequest();
-        ap1.setTitle("Titulo");
-        ap1.setDescription("Descripcion");
+        ap1.setTitle("aritmetica polinomial");
+        ap1.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
         ap1.setVideoPath("video.mp4");
         ap1.setTopicId(t1.getId());
-        
         lessonService.createAppLesson(ap1);
 
         AppRequest ap2 = new AppRequest();
         ap2.setTitle("Introducción a los polinomios");
         ap2.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
         ap2.setVideoPath("video.mp4");
-        ap2.setTopicId(t2.getId());
-        
+        ap2.setTopicId(t1.getId());  
         lessonService.createAppLesson(ap2);
+
+        AppRequest ap3 = new AppRequest();
+        ap3.setTitle("Factorizando monomios");
+        ap3.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap3.setVideoPath("video.mp4");
+        ap3.setTopicId(t2.getId());  
+        lessonService.createAppLesson(ap3);
+
+        AppRequest ap4 = new AppRequest();
+        ap4.setTitle("Métodos para dividir polinomios");
+        ap4.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap4.setVideoPath("video.mp4");
+        ap4.setTopicId(t3.getId());  
+        lessonService.createAppLesson(ap4);
+
+        AppRequest ap5 = new AppRequest();
+        ap5.setTitle("Teorema del resto");
+        ap5.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap5.setVideoPath("video.mp4");
+        ap5.setTopicId(t3.getId());  
+        lessonService.createAppLesson(ap5);
         return "OK";
     }
 }
