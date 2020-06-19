@@ -1,37 +1,21 @@
-<div class="">
-<header class="site-header">
-    <div class="">
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand apprendo-nav" href="#">
-        Apprendo
-        </a>
-        <div class="logo">
-
-        </div>
-        <div class="">
-
-        </div>
-    </nav>
-    </div>
-</header>
-</div>
-<section>
-<div class="container-fluid">
-    <div *ngFor="let course of courses">
-        <h3>{{course.name}}</h3>
-        <div class="container">
-        <div class="row">
-            <div class="col-md-4" *ngFor="let topic of course.topics">
-            <a [routerLink]="['/tema/' + topic.id]">
-                <div class="">
+<div class="container">
+    <div class="container-fluid">
+        <h2>Welcome to Apprendo. Select a course to get started.</h2>
+        <div *ngFor="let course of courses">
+            <h3 class="title-course">{{course.name}}</h3>
+            <div class="container">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let topic of course.topics">
+                <a [routerLink]="['/tema/' + topic.id]" class="topic">
+                    <div class="">
+                    </div>
+                    <h4 class="titulo-tema">{{topic.name}}</h4>
+                    <p class="tema-descripcion">{{topic.description}}</p>
+                </a>
                 </div>
-                <h4 class="titulo-tema">{{topic.name}}</h4>
-                <p class="tema-descripcion">{{topic.description}}</p>
-            </a>
+            </div>
             </div>
         </div>
-        </div>
     </div>
 </div>
-</section>
 <router-outlet></router-outlet>
