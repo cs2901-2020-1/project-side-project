@@ -146,6 +146,12 @@ main {
     margin-right: 30px;
 }
 
+
+.information .description b {
+    display: block;
+    margin-bottom: 6px;
+}
+
 .information .description p {
     margin-bottom: 0;
 }
