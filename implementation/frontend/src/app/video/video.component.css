@@ -236,6 +236,10 @@ main {
     border-radius: 7px;
 }
 
+.mat-form-field {
+    display: block;
+}
+
 .my-comment .text button {
     outline: none;
     background-color: #1a92ff;
