@@ -35,3 +35,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-x:
   font-family: Montserrat-Bold;
   src: url('assets/fonts/montserrat/Montserrat-Bold.ttf'); 
 }
+
+@font-face {
+  font-family: Soleil-Regular;
+  src: url('assets/fonts/Soleil/Soleil-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Soleil-Bold;
+  src: url('assets/fonts/Soleil/Soleil-Bold.ttf'); 
+}
