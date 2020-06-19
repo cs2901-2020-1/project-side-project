@@ -4,11 +4,15 @@ import { StudentDashboardComponent } from './student-dashboard/student-dashboard
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
 
 
 @NgModule({
   declarations: [
-    StudentDashboardComponent
+    StudentDashboardComponent,
+    DashboardComponent,
+    TeacherDashboardComponent
   ],
   imports: [
     CommonModule,
