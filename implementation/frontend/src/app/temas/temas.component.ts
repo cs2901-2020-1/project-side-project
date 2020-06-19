@@ -14,7 +14,6 @@ export class TemasComponent implements OnInit {
 
   constructor(
       private route: ActivatedRoute,
-      private router: Router,
       public snackBar: MatSnackBar,
       private topicService: TopicService) {
     this.getRouteParams();

@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { TemasComponent } from './temas/temas.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { NavbarModule } from './navbar/navbar.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +28,8 @@ import { NavbarModule } from './navbar/navbar.module';
     BrowserModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HomeModule,
     DashboardModule,
     AuthModule,

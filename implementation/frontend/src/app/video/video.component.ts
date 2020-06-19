@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LessonService, AuthService } from '../shared/services';
+import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-video',
@@ -7,9 +11,75 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoComponent implements OnInit {
 
-  constructor() { }
+  lesson: any;
 
-  ngOnInit(): void {
+  id: number;
+
+  comments: any[] = [];
+
+  form: FormGroup;
+
+  constructor(
+      private formBuilder: FormBuilder,
+      private route: ActivatedRoute,
+      public snackBar: MatSnackBar,
+      private authService: AuthService,
+      private lessonService: LessonService) {
+    this.getRouteParams();
   }
 
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      content: ['', Validators.required]
+    });
+  }
+
+  getRouteParams() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.id = +id
+
+    this.lessonService.getById(id)
+      .pipe()
+      .subscribe(
+        data => {
+          this.lesson = data
+          this.comments = data.comments
+          this.comments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        },
+        err => {
+          this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+        }
+      )
+  }
+
+  onComment() {
+    let comment = {
+      'userId': this.authService.currentUserId(),
+      'lessonId': this.id,
+      'content': this.content.value
+    }
+    this.lessonService.commentVideo(comment)
+      .pipe()
+      .subscribe(
+        data => {
+          console.log(data)
+          this.comments.push(data)
+          this.comments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          console.log(this.comments)
+        },
+        err => {
+          this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+        }
+      )
+  }
+
+  get content(){
+    return this.form.get('content')
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
 }

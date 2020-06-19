@@ -10,7 +10,7 @@
         <div class="title">
             <div class="top">
                 <h2>
-                    Introducción a los polinomios.
+                    {{lesson.title}}
                 </h2>
                 <div class="like">
                     Me gusta &nbsp; 
@@ -32,7 +32,7 @@
             <div class="description">
                 <b>Descripción</b>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.
+                    {{lesson.description}}
                 </p>
             </div>
         </div>
@@ -53,50 +53,31 @@
                     <img src="../../../assets/images/user_photo.gif" alt="_profile">
                 </div>
                 <div class="text">
-                    <textarea name="comt" placeholder="Deja tu comentario..."></textarea>
-                    <button type="submit">
-                        Comentar
-                        <mat-icon>send</mat-icon>
-                    </button>
+                    <form class="example-form" [formGroup]="form" (ngSubmit)="onComment()" >                      
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Deja tu comentario...</mat-label>
+                          <textarea matInput name="comt" formControlName="content"></textarea>
+                        </mat-form-field>
+                        <button type="submit" [disabled]="!form.valid">
+                            Comentar
+                            <mat-icon>send</mat-icon>
+                        </button>
+                      </form>
                 </div>
             </div>
             <hr>
             <div class="other-comments">
 
-                <div class="comment">
+                <div class="comment" *ngFor="let comment of comments">
                     <div class="image">
                         <img src="../../../assets/images/user_photo.gif" alt="_profile">
                     </div>
                     <div class="text">
-                        <b>Nombre otro usuario</b>
-                        <span>- 14 Jun 2020</span>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo asperiores blanditiis sapiente, 
-                            commodi minus odit perferendis? Ex dignissimos aut ad numquam accusantium tenetur?</p>
+                        <b>{{comment.fullName}}</b>
+                        <span>{{comment.date | date : 'dd-MM-yyyy h:mm'}}</span>
+                        <p>{{comment.content}}</p>
                     </div>
                 </div>
-
-                <div class="comment">
-                    <div class="image">
-                        <img src="../../../assets/images/user_photo.gif" alt="_profile">
-                    </div>
-                    <div class="text">
-                        <b>Nombre otro usuario</b>
-                        <span>- 14 Jun 2020</span>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero numquam unde, beatae nam minima quos nostrum dolores error? Alias, voluptatum odit! Dolorum, autem eum velit, nam tenetur molestiae totam nihil voluptatibus libero iusto laboriosam reprehenderit.</p>
-                    </div>
-                </div>
-
-                <div class="comment">
-                    <div class="image">
-                        <img src="../../../assets/images/user_photo.gif" alt="_profile">
-                    </div>
-                    <div class="text">
-                        <b>Nombre otro usuario</b>
-                        <span>- 12 May 2020</span>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
 

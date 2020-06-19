@@ -54,6 +54,7 @@ export class AuthService {
 
     storeData(user: any) {
         if (user && user.token) {
+            localStorage.setItem('currentUserId', user.userId);
             localStorage.setItem('currentUserToken', user.token);
             localStorage.setItem('currentUserRole', user.role);
             localStorage.setItem('currentUserFullName', user.fullName);
@@ -61,10 +62,15 @@ export class AuthService {
     }
 
     logout() {
+        localStorage.removeItem('currentUserId');
         localStorage.removeItem('currentUserToken');
         localStorage.removeItem('currentUserRole');
         localStorage.removeItem('currentUserFullName');
         this.router.navigate(['/']);
+    }
+
+    public currentUserId(): number {
+        return +localStorage.getItem('currentUserId');
     }
 
     public currentUserRole(): string {
