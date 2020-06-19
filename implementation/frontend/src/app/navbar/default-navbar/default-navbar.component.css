@@ -1,0 +1,22 @@
+
+* {
+    font-family: Soleil-Regular;
+}
+
+.title {
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+.navbar-content {
+    width: 100%;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    text-align: center;
+    transition: .5s;
+    z-index: 1000;
+}

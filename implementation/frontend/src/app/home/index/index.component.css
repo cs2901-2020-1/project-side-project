@@ -1,11 +1,14 @@
 
+* {
+    font-family: Soleil-Regular !important;
+}
+
 .top {
     position: relative;
     display: flex;
     width: 100%;
-    margin: auto;
-    margin-top: 30px;
-    height: 90vh;
+    height: 100%;
+    margin: 0;
     overflow: hidden;
     align-items: center;
 }
@@ -14,7 +17,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 90vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -62,13 +65,12 @@
     opacity: .2;
 }
 
+.center {
+    position: relative;
+    height: 100%;
+}
+
 @media (min-width: 768px) {
-    .top {
-        max-width: 90vw;
-        height: 90vh;
-        overflow: hidden;
-        align-items: center;
-    }
     .info {
         position: initial;
         left: 0;

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class NavbarComponent implements OnInit {
 
   role: any = null;
 
@@ -14,6 +14,6 @@ export class DashboardComponent implements OnInit {
     this.role = authService.currentUserRole()
   }
 
-  ngOnInit(): void {
+  public ngOnInit() {
   }
 }

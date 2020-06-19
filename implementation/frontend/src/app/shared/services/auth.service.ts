@@ -31,10 +31,7 @@ export class AuthService {
     login(email: string, password: string) {
         return this.http.post<any>(AuthService.path + '/login', { email: email, password: password })
             .pipe(map(user => {
-                if (user && user.token) {
-                    localStorage.setItem('currentUserToken', user.token);
-                    localStorage.setItem('currentUserRole', user.role);
-                }
+                this.storeData(user)
             }
         ));
     }
@@ -42,10 +39,7 @@ export class AuthService {
     studentSignup(request: any) {
         return this.http.post<any>(AuthService.path + '/student', request)
             .pipe(map(user => {
-                if (user && user.token) {
-                    localStorage.setItem('currentUserToken', user.token);
-                    localStorage.setItem('currentUserRole', user.role);
-                }
+                this.storeData(user)
             }
         ));
     }
@@ -53,22 +47,32 @@ export class AuthService {
     teacherSignup(request: any) {
         return this.http.post<any>(AuthService.path + '/teacher', request)
             .pipe(map(user => {
-                if (user && user.token) {
-                    localStorage.setItem('currentUserToken', user.token);
-                    localStorage.setItem('currentUserRole', user.role);
-                }
+                this.storeData(user)
             }
         ));
+    }
+
+    storeData(user: any) {
+        if (user && user.token) {
+            localStorage.setItem('currentUserToken', user.token);
+            localStorage.setItem('currentUserRole', user.role);
+            localStorage.setItem('currentUserFullName', user.fullName);
+        }
     }
 
     logout() {
         localStorage.removeItem('currentUserToken');
         localStorage.removeItem('currentUserRole');
+        localStorage.removeItem('currentUserFullName');
         this.router.navigate(['/']);
     }
 
     public currentUserRole(): string {
         return localStorage.getItem('currentUserRole');
+    }
+
+    public currentUserFullName(): string {
+        return localStorage.getItem('currentUserFullName');
     }
 
     getTokenExpirationDate(token: string): Date {

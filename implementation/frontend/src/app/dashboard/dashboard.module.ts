@@ -6,6 +6,7 @@ import { MaterialModule } from '../material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
+import { NavbarModule } from '../navbar/navbar.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard
     CommonModule,
     MaterialModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    NavbarModule
   ]
 })
 export class DashboardModule { }

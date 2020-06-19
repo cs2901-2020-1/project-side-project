@@ -3,21 +3,17 @@ import { CommonModule } from '@angular/common';
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ImageService } from '../shared/services';
-import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NavbarModule } from '../navbar/navbar.module';
+import { MaterialModule } from '../material.module';
 
 
 
 @NgModule({
   declarations: [
     IndexComponent,
-    NavbarComponent
+    
   ],
   imports: [
     AppRoutingModule,
@@ -25,11 +21,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatProgressSpinnerModule
+    MaterialModule,
+    NavbarModule
   ],
   providers: [
     ImageService

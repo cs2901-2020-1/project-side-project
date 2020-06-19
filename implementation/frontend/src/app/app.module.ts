@@ -13,6 +13,7 @@ import { VideoComponent } from './video/video.component';
 import { RouterModule } from '@angular/router';
 import { TemasComponent } from './temas/temas.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { NavbarModule } from './navbar/navbar.module';
 
 
 
@@ -32,6 +33,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    NavbarModule,
     SharedModule.forRoot()
   ],
   providers: [],
