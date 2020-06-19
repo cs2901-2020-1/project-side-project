@@ -1,26 +1,35 @@
-a:hover {
-text-decoration: none;
-}
-
 .custom-navbar {
     margin-left: 20px;
 }
 
+.site-header {
+    border-bottom: 1px solid #ECEDEF;
+    background: #FFFFFF;
+}
+    
+.apprendo-nav {
+    font-size: 2rem;
+    line-height: 40px
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 .titulo-tema {
-color: #1F1F1F;
+    color: #1F1F1F;
 }
 
 .tema-descripcion {
-color: #000000;
-opacity: 0.4;
+    color: #000000;
+    opacity: 0.4;
 }
 
-.site-header {
-border-bottom: 1px solid #ECEDEF;
-background: #FFFFFF;
+.container-cursos {
+    padding-left: 35px;
+    padding-top: 15px;
 }
 
-.apprendo-nav {
-font-size: 2rem;
-line-height: 40px
+.container-item-curso{
+    margin-bottom: 30px;
 }
