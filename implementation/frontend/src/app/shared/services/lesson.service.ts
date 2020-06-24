@@ -37,4 +37,12 @@ export class LessonService {
             }
         ))
   }
+
+  likeVideo(like: any) : Observable<any> {
+    return this.http.post<any>(LessonService.path + 'like', like)
+            .pipe(map(data => {
+                return data
+            }
+        ))
+  }
 }

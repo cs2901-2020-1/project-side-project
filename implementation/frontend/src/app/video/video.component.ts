@@ -19,6 +19,8 @@ export class VideoComponent implements OnInit {
 
   form: FormGroup;
 
+  like: Boolean = false;
+
   constructor(
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
@@ -43,6 +45,7 @@ export class VideoComponent implements OnInit {
       .subscribe(
         data => {
           this.lesson = data
+          this.like = data.like
           this.comments = data.comments
           this.comments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         },
@@ -66,6 +69,29 @@ export class VideoComponent implements OnInit {
           this.comments.push(data)
           this.comments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
           console.log(this.comments)
+        },
+        err => {
+          this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+        }
+      )
+  }
+
+  onLike() {
+    let like = {
+      'userId': this.authService.currentUserId(),
+      'lessonId': this.id,
+      'like': !this.lesson.like
+    }
+    this.lessonService.likeVideo(like)
+      .pipe()
+      .subscribe(
+        data => {
+          this.like = data.like
+          if (this.like) {
+            this.lesson.numLikes += 1
+          } else {
+            this.lesson.numLikes -= 1
+          }
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
