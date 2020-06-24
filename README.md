@@ -13,6 +13,9 @@
 ## Sprint 1
 ![](images/Sprint_1.png)
 
+## Sprint 2
+![](images/Sprint_2.png)
+
 ## Contenido
 ### [Glosario](docs/glossary.md)
 ### Lista de Requerimientos 
