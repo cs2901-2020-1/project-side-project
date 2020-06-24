@@ -8,8 +8,6 @@ import {
 import { Observable } from 'rxjs';
 
 @Injectable()
-
-@Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   constructor() { }
   
@@ -18,7 +16,7 @@ export class JwtInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
 
-    const token = localStorage.getItem('currentUser');
+    const token = localStorage.getItem('currentUserToken');
     let updatedRequest = request;
     if (token != null) {
           updatedRequest = request.clone({
