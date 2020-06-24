@@ -1,9 +1,13 @@
 package controller;
 
 import services.LessonService;
+import services.LikeService;
 import services.StorageService;
+import services.UserService;
 import data.entities.Comment;
 import data.entities.Lesson;
+import data.entities.Like;
+import data.entities.Usuario;
 import data.models.*;
 
 import java.io.IOException;
@@ -26,13 +30,26 @@ public class LessonController {
     @Autowired
     private StorageService storageService;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private LikeService likeService;
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getById(@PathVariable Long id) {
-        Lesson topic = service.findOne(id);
-        if (topic == null) {
+        Lesson lesson = service.findOne(id);
+        if (lesson == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(topic.getModel(), HttpStatus.OK);
+
+        LessonModel model = lesson.getModel();
+
+        Usuario user = userService.getCurrentUser();
+        Like like = likeService.findOneByUser(user);
+        model.setLike(like != null);
+
+        return new ResponseEntity<>(model, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
@@ -42,6 +59,15 @@ public class LessonController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(comment.getModel(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/like", method = RequestMethod.POST)
+    public ResponseEntity<?> likeLesson(@RequestBody LikeModel model) {
+        model = service.likeLesson(model);
+        if (model == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(model, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/video", method = RequestMethod.POST)

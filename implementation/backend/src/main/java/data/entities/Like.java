@@ -2,7 +2,6 @@ package data.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-//import java.util.Set;
 
 @Entity
 @Table(name = "likes")
@@ -13,11 +12,38 @@ public class Like implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;    
-    /*
-    @Column(nullable = false)
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private Usuario user;
 
-    @Column(nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lesson_id", nullable = false)
     private Lesson lesson;
-    */
+
+    public Like() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
 }

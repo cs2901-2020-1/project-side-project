@@ -10,6 +10,9 @@ public class LessonModel {
     private String videoPath;
     private String documentPath;
 
+    private Long numLikes;
+    private Boolean like;
+
     private List<CommentModel> comments;
 
     public LessonModel() {}
@@ -52,5 +55,21 @@ public class LessonModel {
 
     public void setComments(List<CommentModel> comments) {
         this.comments = comments;
+    }
+
+    public Long getNumLikes() {
+        return numLikes;
+    }
+
+    public void setNumLikes(Long numLikes) {
+        this.numLikes = numLikes;
+    }
+
+    public Boolean getLike() {
+        return like;
+    }
+
+    public void setLike(Boolean like) {
+        this.like = like;
     }
 }

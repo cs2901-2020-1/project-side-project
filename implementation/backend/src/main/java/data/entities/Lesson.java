@@ -46,6 +46,10 @@ public class Lesson implements Serializable {
     @OneToMany(mappedBy = "lesson", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Comment> comments;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "lesson", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Like> likes;
+
     public Lesson() {}
 
     public Long getId() {
@@ -113,6 +117,14 @@ public class Lesson implements Serializable {
         this.comments = comments;
     }
 
+    public Set<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Set<Like> likes) {
+        this.likes = likes;
+    }
+    
     public LessonModel getModel() {
         LessonModel model = new LessonModel();
 
@@ -129,6 +141,10 @@ public class Lesson implements Serializable {
         }
         
         model.setComments(items);
+
+        Long numLikes = (long) likes.size();
+
+        model.setNumLikes(numLikes);
 
         return model;
     }

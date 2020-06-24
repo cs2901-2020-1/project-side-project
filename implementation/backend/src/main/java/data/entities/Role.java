@@ -1,7 +1,11 @@
 package data.entities;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name="role")
@@ -15,6 +19,10 @@ public class Role implements Serializable {
 
     @Column(nullable = false)
     String name;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Usuario> users;
 
     public Role() {}
 
@@ -36,5 +44,13 @@ public class Role implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public Set<Usuario> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<Usuario> users) {
+        this.users = users;
     }
 }

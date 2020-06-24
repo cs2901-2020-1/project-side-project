@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
     @Column(nullable = false)
     private String lastName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rolId", nullable = true)
     private Role role;
 
@@ -42,6 +42,10 @@ public class Usuario implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Comment> comments;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Like> likes;
 
     public Usuario() {}
 
@@ -119,5 +123,13 @@ public class Usuario implements Serializable {
 
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
+    }
+
+    public Set<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Set<Like> likes) {
+        this.likes = likes;
     }
 }
