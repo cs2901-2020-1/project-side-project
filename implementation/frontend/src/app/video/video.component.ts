@@ -77,10 +77,11 @@ export class VideoComponent implements OnInit {
   }
 
   onLike() {
+    this.lesson.like = !this.lesson.like
     let like = {
       'userId': this.authService.currentUserId(),
       'lessonId': this.id,
-      'like': !this.lesson.like
+      'like': this.lesson.like
     }
     this.lessonService.likeVideo(like)
       .pipe()
