@@ -46,7 +46,7 @@ public class LessonController {
         LessonModel model = lesson.getModel();
 
         Usuario user = userService.getCurrentUser();
-        Like like = likeService.findOneByUser(user);
+        Like like = likeService.findOneByUserAndLesson(user, lesson);
         model.setLike(like != null);
 
         return new ResponseEntity<>(model, HttpStatus.OK);
