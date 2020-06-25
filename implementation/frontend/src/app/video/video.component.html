@@ -13,9 +13,8 @@
                     {{lesson.title}}
                 </h2>
                 <div class="like" (click)="onLike()">
-                    <span *ngIf="!like">Me gusta &nbsp; </span>
+                    <span >Me gusta &nbsp; </span>
                     <mat-icon *ngIf="!like">favorite_border</mat-icon>
-                    <span *ngIf="like">Ya no me gusta &nbsp; </span>
                     <mat-icon *ngIf="like">favorite</mat-icon>
                     <span id="number">
                         {{lesson.numLikes}}
