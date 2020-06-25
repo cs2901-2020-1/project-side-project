@@ -22,13 +22,13 @@ public class ApprendoApplication extends SpringBootServletInitializer implements
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         File uploads = new File(Constants.IMAGE_PATH);
         uploads.mkdir();
-        registry.addResourceHandler("/images/**")
+        registry.addResourceHandler("/files/**")
                 .addResourceLocations("file:"+ Constants.IMAGE_PATH);
     }
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/images/**").allowedOrigins("*");
+        registry.addMapping("/files/**").allowedOrigins("*");
     }
 
 	public static void main(String[] args) {
