@@ -104,22 +104,21 @@ public class LessonService {
             return null;
         }
         
-        Like like = new Like();
-
-        if (likeModel.getLike()) {
+        Like like = likeService.findOneByUserAndLesson(user, lesson);
+        if (like == null && likeModel.getLike()) {
+            like = new Like();
             like.setUser(user);
             like.setLesson(lesson);
             likeService.create(like);
-            likeModel.setLike(true);
-        } else {
-            like = likeService.findOneByUserAndLesson(user, lesson);
-            if (like != null) {
-                likeService.deleteClass(like);
-                likeModel.setLike(false);
-            }
+            return likeModel;
         }
 
-        return likeModel;
+        if (like != null && !likeModel.getLike()) {
+            likeService.deleteClass(like);
+            return likeModel;
+        }
+
+        return null;
     }
 
     public void delete(Long id){
