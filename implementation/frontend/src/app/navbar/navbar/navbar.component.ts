@@ -11,7 +11,8 @@ export class NavbarComponent implements OnInit {
   role: any = null;
 
   constructor(authService: AuthService) {
-    this.role = authService.currentUserRole()
+    if (!authService.isTokenExpired())
+      this.role = authService.currentUserRole()
   }
 
   public ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LessonService, AuthService } from '../shared/services';
+import { LessonService, AuthService } from '../../shared/services';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
