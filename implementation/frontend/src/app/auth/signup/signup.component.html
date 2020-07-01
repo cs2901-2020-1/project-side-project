@@ -96,7 +96,14 @@
           <div class="field" *ngIf="selection == 'student'">
             <mat-form-field appearance="fill">
               <mat-label>Año Escolar</mat-label>
-              <input matInput type="text" formControlName="schoolYear" autocomplete="off">
+              <!-- <input matInput type="text" formControlName="schoolYear" autocomplete="off"> -->
+              <!-- Change form element -->
+              <mat-select formControlName="schoolYear">
+                <mat-option value="3">3ro Secundaria</mat-option>
+                <mat-option value="4">4to Secundaria</mat-option>
+                <mat-option value="5">5to Secundaria</mat-option>
+              </mat-select>
+              <!-- End change -->
             </mat-form-field>
           </div>
           <div *ngIf="(schoolYear.invalid && schoolYear.touched) || schoolYear.dirty">
