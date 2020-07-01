@@ -105,7 +105,17 @@ main {
     height: 20px;
     margin-right: 3px;
     transform: translateY(-2px);
+    animation: pulse .3s;
 }
+
+@keyframes pulse {
+    0%, 100% {
+      transform: translateY(-2px) scale(1);
+    }
+    50% {
+        transform: translateY(-2px) scale(1.2);
+    }
+  }
 
 .title .tags a {
     display: inline-block;
@@ -171,15 +181,15 @@ main {
     text-decoration: none;
     color: #3b3b3b;
     font-size: 16;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     border: 1px solid #c6c6c6;
     transition: all ease .3s;
     cursor: inherit;
 }
-
+/*
 .profesor a:hover {
     box-shadow: 0 3px 6px rgba(139, 139, 139, 0.4);
-}
+}*/
 
 
 
