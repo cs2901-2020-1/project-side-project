@@ -1,9 +1,9 @@
 <div class="container">
     <h1>Subir contenido</h1>
-    <form>
+    <form [formGroup]="contentUploadForm" (ngSubmit)="onUpload()">
         <div class="form-group">
             <label for="exampleFormControlSelect1">Curso</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select formControlName="curso" class="form-control" id="exampleFormControlSelect1">
               <option>Matematica</option>
               <option>Fisica</option>
               <option>Quimica</option>
@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Tema</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select formControlName="tema" class="form-control" id="exampleFormControlSelect1">
               <option>Polinomios</option>
               <option>Factorización de Polinomios</option>
               <option>División polinomial</option>
@@ -19,21 +19,21 @@
         </div>
         <div class="form-group">
           <label for="InputTitulo">Título de la Apprendo Clase</label>
-          <input type="text" class="form-control" id="InputTitulo" aria-describedby="tituloHelp" placeholder="Ingresar título">
+          <input formControlName="titulo" type="text" class="form-control" id="InputTitulo" aria-describedby="tituloHelp" placeholder="Ingresar título">
           <small id="tituloHelp" class="form-text text-muted">Un título corto que resuma tu clase</small>
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción de la Apprendo Clase</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" aria-describedby="descripcionHelp"></textarea>
+            <textarea formControlName="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" aria-describedby="descripcionHelp"></textarea>
             <small id="descripcionHelp" class="form-text text-muted">Incluye toda la información que contiene tu apprendo clase. Puedes incluir algún consejo o indicar la importancia de este tema.</small>
         </div>
         <div class="form-group">
             <label for="exampleFormControlFile1">Indicar archivo de video de la Apprendo Clase</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input formControlName="fileVideo" type="file" class="form-control-file" id="exampleFormControlFile1">
         </div>
         <div class="form-group">
             <label for="exampleFormControlFile1">Indicar archivo pdf de la Apprendo Clase</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input formControlName="filePdf" type="file" class="form-control-file" id="exampleFormControlFile1">
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
