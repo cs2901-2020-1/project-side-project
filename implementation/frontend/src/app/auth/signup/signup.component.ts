@@ -63,8 +63,6 @@ export class SignupComponent implements OnInit {
         'birthdate': this.birthdate.value
       }
       
-      console.log(request)
-
       this.authService.studentSignup(request)
         .pipe()
         .subscribe(
