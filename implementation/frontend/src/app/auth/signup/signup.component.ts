@@ -59,9 +59,12 @@ export class SignupComponent implements OnInit {
         'name': this.name.value,
         'lastName': this.lastName.value,
         'school': this.school.value,
+        'schoolYear': this.schoolYear.value,
         'birthdate': this.birthdate.value
       }
-  
+      
+      console.log(request)
+
       this.authService.studentSignup(request)
         .pipe()
         .subscribe(
