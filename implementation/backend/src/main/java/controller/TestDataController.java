@@ -103,7 +103,7 @@ public class TestDataController {
         Topic t4 = new Topic();
         t4.setName("Cinemática");
         t4.setDescription("Movimiento rectilineo, vectores movimiento curvilineo");
-        t4.setCourse(c1);
+        t4.setCourse(c2);
         topicService.create(t4);
 
         Topic t5 = new Topic();
