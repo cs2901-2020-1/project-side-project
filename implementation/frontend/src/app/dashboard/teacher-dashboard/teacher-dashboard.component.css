@@ -1,3 +1,13 @@
 .container {
     margin-top: 100px;
 }
+
+form {
+    margin-bottom: 50px;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
