@@ -54,6 +54,10 @@ public class AppRequest {
         this.topicId = topicId;
     }
 
+    public void setTopicId(String topicId) {
+        this.topicId = Long.parseLong(topicId);
+    }
+
     public Lesson getLesson() {
         Lesson lesson = new Lesson();
         lesson.setTitle(title);

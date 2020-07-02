@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Subir contenido</h1>
-    <form [formGroup]="contentUploadForm" (ngSubmit)="onUpload()">
+    <form [formGroup]="contentUploadForm" (ngSubmit)="onUpload()" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleFormControlSelect1">Curso</label>
             <select formControlName="curso" class="form-control" id="exampleFormControlSelect1">

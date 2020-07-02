@@ -34,17 +34,22 @@ export class TeacherDashboardComponent implements OnInit {
     let request = {
       'title': this.titulo.value,
       'description': this.descripcion.value,
-      'topicId': this.tema.value,
-      'curso': this.curso.value
+      'topicId': 1
+      // 'curso': this.curso.value
     }
 
     const formDataVideo = new FormData();
     const formDataPdf = new FormData();
     const formDataReq = new FormData();
-    formDataVideo.append('videoFile', this.contentUploadForm.get('fileVideo').value);
-    formDataPdf.append('pdfFile', this.contentUploadForm.get('filePdf').value);
+    formDataVideo.append('file', this.contentUploadForm.get('fileVideo').value);
+    formDataPdf.append('file', this.contentUploadForm.get('filePdf').value);
     
-    this.httpClient.post<any>(this.SERVER_URL, formDataVideo).subscribe(
+    formDataReq.append('video', this.contentUploadForm.get('fileVideo').value);
+    formDataReq.append('doc', this.contentUploadForm.get('filePdf').value);
+    formDataReq.append('appRequest', JSON.stringify(request));
+    
+   
+    this.httpClient.post<any>(this.SERVER_URL, formDataReq).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
     );
