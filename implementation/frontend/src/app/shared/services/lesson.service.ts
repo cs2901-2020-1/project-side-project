@@ -45,4 +45,18 @@ export class LessonService {
             }
         ))
   }
+
+  uploadVideo(document: any, video: any, request: any) : Observable<any> {
+    
+    let formData = new FormData();
+    formData.append('video', video);
+    formData.append('doc', document);
+    formData.append('request', new Blob([JSON.stringify(request)]));
+    
+    return this.http.post<any>(LessonService.path + 'video', formData)
+            .pipe(map(data => {
+                return data
+            }
+        ))
+  }
 }

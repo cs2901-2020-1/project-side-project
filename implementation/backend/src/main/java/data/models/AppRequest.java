@@ -1,12 +1,16 @@
 package data.models;
 
+import java.io.Serializable;
+
 import data.entities.Lesson;
 
-public class AppRequest {
+public class AppRequest implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     private String title;
     private String description;
-    
+
     private String videoPath;
     private String documentPath;
 

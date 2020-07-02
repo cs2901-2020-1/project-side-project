@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { LessonService } from 'src/app/shared/services';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-teacher-dashboard',
@@ -11,12 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class TeacherDashboardComponent implements OnInit {
 
   contentUploadForm: FormGroup;
-  SERVER_URL = "http://localhost:8080/lesson/video";
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private httpClient: HttpClient
+    private lessonService: LessonService,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -35,24 +34,29 @@ export class TeacherDashboardComponent implements OnInit {
       'title': this.titulo.value,
       'description': this.descripcion.value,
       'topicId': 1
-      // 'curso': this.curso.value
     }
 
-    const formDataVideo = new FormData();
-    const formDataPdf = new FormData();
-    const formDataReq = new FormData();
-    formDataVideo.append('file', this.contentUploadForm.get('fileVideo').value);
-    formDataPdf.append('file', this.contentUploadForm.get('filePdf').value);
-    
-    formDataReq.append('video', this.contentUploadForm.get('fileVideo').value);
-    formDataReq.append('doc', this.contentUploadForm.get('filePdf').value);
-    formDataReq.append('appRequest', JSON.stringify(request));
-    
-   
-    this.httpClient.post<any>(this.SERVER_URL, formDataReq).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
-    );
+    let video = this.fileVideo.value
+    let document = this.fileVideo.value
+
+    this.lessonService.uploadVideo(video, document, request)
+        .pipe()
+        .subscribe(
+          data => {
+            console.log(data)
+            this.contentUploadForm.reset
+          },
+          err => {
+            console.log(err)
+              this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+          }
+        )
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 
   onVideoFileSelect(event) {
@@ -85,4 +89,11 @@ export class TeacherDashboardComponent implements OnInit {
     return this.contentUploadForm.get('descripcion')
   }
 
+  get fileVideo(){
+    return this.contentUploadForm.get('fileVideo')
+  }
+
+  get filePdf(){
+    return this.contentUploadForm.get('filePdf')
+  }
 }

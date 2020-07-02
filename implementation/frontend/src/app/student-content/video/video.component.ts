@@ -3,6 +3,7 @@ import { LessonService, AuthService } from '../../shared/services';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-video',
@@ -47,6 +48,7 @@ export class VideoComponent implements OnInit {
           this.lesson = data
           this.like = data.like
           this.comments = data.comments
+          this.lesson.videoPath = environment.APIEndpoint + '/files/' + data.videoPath
           this.comments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         },
         err => {
@@ -65,10 +67,9 @@ export class VideoComponent implements OnInit {
       .pipe()
       .subscribe(
         data => {
-          console.log(data)
+          this.form.reset()
           this.comments.push(data)
           this.comments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-          console.log(this.comments)
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');

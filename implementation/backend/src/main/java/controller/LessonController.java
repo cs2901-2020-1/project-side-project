@@ -13,6 +13,8 @@ import data.models.*;
 import java.io.IOException;
 import java.nio.file.Path;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,14 +74,26 @@ public class LessonController {
 
     @RequestMapping(value = "/video", method = RequestMethod.POST)
     public ResponseEntity<?> handleVideoUpload(
-            @RequestParam("video") MultipartFile video,
-            @RequestParam("doc") MultipartFile doc,
-            @RequestParam("appRequest") AppRequest appRequest) throws IOException {
+            @RequestPart("video") MultipartFile video,
+            @RequestPart("doc") MultipartFile doc,
+            @RequestPart("request") String request) throws IOException {
+        
+        ObjectMapper mapper = new ObjectMapper();
+        AppRequest appRequest = new AppRequest();
+
+        try {
+            appRequest = mapper.readValue(request, AppRequest.class);
+        } catch (IOException e) {
+            return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
         Path videoFileName = storageService.store(video);
         Path docFileName = storageService.store(doc);
         appRequest.setVideoPath(videoFileName.getFileName().toString());
         appRequest.setDocumentPath(docFileName.getFileName().toString());
+        
         service.createAppLesson(appRequest);
+        
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
