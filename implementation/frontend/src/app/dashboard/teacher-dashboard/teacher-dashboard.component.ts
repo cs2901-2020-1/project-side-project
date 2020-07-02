@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-teacher-dashboard',
@@ -10,10 +11,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TeacherDashboardComponent implements OnInit {
 
   contentUploadForm: FormGroup;
+  SERVER_URL = "http://localhost:8080/lesson/video";
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private httpClient: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -29,10 +32,35 @@ export class TeacherDashboardComponent implements OnInit {
 
   onUpload(){
     let request = {
-      'curso': this.curso.value,
-      'tema': this.tema.value,
-      'titulo': this.titulo.value,
-      'descripcion': this.descripcion.value
+      'title': this.titulo.value,
+      'description': this.descripcion.value,
+      'topicId': this.tema.value,
+      'curso': this.curso.value
+    }
+
+    const formDataVideo = new FormData();
+    const formDataPdf = new FormData();
+    const formDataReq = new FormData();
+    formDataVideo.append('videoFile', this.contentUploadForm.get('fileVideo').value);
+    formDataPdf.append('pdfFile', this.contentUploadForm.get('filePdf').value);
+    
+    this.httpClient.post<any>(this.SERVER_URL, formDataVideo).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
+  }
+
+  onVideoFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.contentUploadForm.get('fileVideo').setValue(file);
+    }
+  }
+
+  onPdfFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.contentUploadForm.get('filePdf').setValue(file);
     }
   }
 

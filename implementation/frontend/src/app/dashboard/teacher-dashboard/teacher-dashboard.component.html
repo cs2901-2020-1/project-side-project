@@ -4,17 +4,17 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">Curso</label>
             <select formControlName="curso" class="form-control" id="exampleFormControlSelect1">
-              <option>Matematica</option>
-              <option>Fisica</option>
-              <option>Quimica</option>
+              <option value="1">Matematica</option>
+              <option value="2">Fisica</option>
+              <option value="3">Quimica</option>
             </select>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Tema</label>
             <select formControlName="tema" class="form-control" id="exampleFormControlSelect1">
-              <option>Polinomios</option>
-              <option>Factorización de Polinomios</option>
-              <option>División polinomial</option>
+              <option value="1">Polinomios</option>
+              <option value="2">Factorización de Polinomios</option>
+              <option value="3">División polinomial</option>
             </select>
         </div>
         <div class="form-group">
@@ -29,11 +29,11 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlFile1">Indicar archivo de video de la Apprendo Clase</label>
-            <input formControlName="fileVideo" type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input formControlName="fileVideo" type="file" (change)="onVideoFileSelect($event)" class="form-control-file" id="exampleFormControlFile1">
         </div>
         <div class="form-group">
             <label for="exampleFormControlFile1">Indicar archivo pdf de la Apprendo Clase</label>
-            <input formControlName="filePdf" type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input formControlName="filePdf" type="file" (change)="onPdfFileSelect($event)" class="form-control-file" id="exampleFormControlFile1">
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
       </form>

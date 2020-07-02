@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
 import { NavbarModule } from '../navbar/navbar.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,9 @@ import { NavbarModule } from '../navbar/navbar.module';
     MaterialModule,
     BrowserModule,
     RouterModule,
-    NavbarModule
+    NavbarModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class DashboardModule { }
