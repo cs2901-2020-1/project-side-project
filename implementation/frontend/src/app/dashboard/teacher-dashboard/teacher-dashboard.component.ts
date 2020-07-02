@@ -37,7 +37,7 @@ export class TeacherDashboardComponent implements OnInit {
     }
 
     let video = this.fileVideo.value
-    let document = this.fileVideo.value
+    let document = this.filePdf.value
 
     this.lessonService.uploadVideo(video, document, request)
         .pipe()
