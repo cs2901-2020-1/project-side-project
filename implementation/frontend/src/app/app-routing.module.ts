@@ -7,6 +7,7 @@ import { VideoComponent } from './student-content/video/video.component';
 import { TemasComponent } from './student-content/temas/temas.component';
 import { AuthGuard, LogicGuard } from './shared/guards';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import {TeacherDashboardComponent } from './dashboard/teacher-dashboard/teacher-dashboard.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'tema/:id',
     component: TemasComponent
+  },
+  {
+    path: 'contenido',
+    component: TeacherDashboardComponent
   },
   {
     path: '**',

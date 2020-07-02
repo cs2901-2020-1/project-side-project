@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
     <h1>Subir contenido</h1>
     <form [formGroup]="contentUploadForm" (ngSubmit)="onUpload()" enctype="multipart/form-data">
@@ -35,6 +36,6 @@
             <label for="exampleFormControlFile1">Indicar archivo pdf de la Apprendo Clase</label>
             <input formControlName="filePdf" type="file" (change)="onPdfFileSelect($event)" class="form-control-file" id="exampleFormControlFile1">
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <div class="center"><button type="submit" class="btn btn-primary">Subir Clase</button></div>
       </form>
 </div>
