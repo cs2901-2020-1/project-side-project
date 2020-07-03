@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopicService } from '../../shared/services';
+import { CourseService } from 'src/app/shared/services';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LessonService } from 'src/app/shared/services';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,7 +18,7 @@ export class SubirContenidoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private lessonService: LessonService,
-    private topicService: TopicService,
+    private courseService: CourseService,
     public snackBar: MatSnackBar
   ) { }
 
@@ -66,11 +66,11 @@ export class SubirContenidoComponent implements OnInit {
 
   onCourseSelect() {
     const id = this.curso.value;
-    this.topicService.getById(id)
+    this.courseService.getById(id)
       .pipe()
       .subscribe(
         data => {
-          this.topics = data.lessons;
+          this.topics = data.topics;
           console.log(this.topics);
         },
         err => {

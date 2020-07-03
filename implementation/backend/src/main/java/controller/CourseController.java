@@ -23,4 +23,13 @@ public class CourseController {
         List<Course> courses = service.findAll();
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getById(@PathVariable Long id) {
+        Course course = service.findOne(id);
+        if (course == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(course, HttpStatus.OK);
+    }
 }
