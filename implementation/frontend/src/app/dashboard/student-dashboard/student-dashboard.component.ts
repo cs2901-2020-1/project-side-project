@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/shared/services';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -10,10 +11,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class StudentDashboardComponent implements OnInit {
 
   courses: any;
+  fullName: string;
 
   constructor(
       private courseService: CourseService,
-      public snackBar: MatSnackBar) {
+      public snackBar: MatSnackBar,
+      private authService: AuthService) {
+    this.fullName = authService.currentUserFullName();
     this.courseService.getAll()
       .pipe()
       .subscribe(
