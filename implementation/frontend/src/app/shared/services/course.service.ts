@@ -21,4 +21,12 @@ export class CourseService {
       })
     )
   }
+
+  getById(id: string) : Observable<any> {
+    return this.http.get(CourseService.path + id).pipe(
+      map(res => {
+        return res
+      })
+    )
+  }
 }
