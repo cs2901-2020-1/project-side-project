@@ -3,42 +3,68 @@
 <div class="all">
 
 <div class="container">
-    <h1>Subir contenido</h1>
+  <h1>Subir contenido</h1>
     <form [formGroup]="contentUploadForm" (ngSubmit)="onUpload()" enctype="multipart/form-data">
-        <div class="form-group">
+        
+      <div class="form-group">
             <label for="exampleFormControlSelect1">Curso</label>
-            <select formControlName="curso" class="form-control" id="exampleFormControlSelect1" (change)="onCourseSelect()">
+            <select formControlName="curso" class="form-control" id="exampleFormControlSelect1" (change)="onCourseSelect()" required>
               <option value="1">Matematica</option>
               <option value="2">Fisica</option>
-              <option value="3">Quimica</option>
             </select>
         </div>
+        
+
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Tema</label>
-            <select formControlName="tema" class="form-control" id="exampleFormControlSelect2">
+            <label for="exampleFormControlSelect2">Tema</label>
+            <select formControlName="tema" class="form-control" id="exampleFormControlSelect2" required>
               <option *ngFor="let topic of topics" value="{{topic.id}}">{{topic.name}}</option>
             </select>
         </div>
+
         <div class="form-group">
           <label for="InputTitulo">Título de la Apprendo Clase</label>
-          <input formControlName="titulo" type="text" class="form-control" id="InputTitulo" aria-describedby="tituloHelp" placeholder="Ingresar título">
+          <input formControlName="titulo" type="text" class="form-control" id="InputTitulo" aria-describedby="tituloHelp" placeholder="Ingresar título" required>
           <small id="tituloHelp" class="form-text text-muted">Un título corto que resuma tu clase</small>
         </div>
+
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción de la Apprendo Clase</label>
-            <textarea formControlName="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" aria-describedby="descripcionHelp"></textarea>
+            <textarea formControlName="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" aria-describedby="descripcionHelp" placeholder="Ingresar descripción" required></textarea>
             <small id="descripcionHelp" class="form-text text-muted">Incluye toda la información que contiene tu apprendo clase. Puedes incluir algún consejo o indicar la importancia de este tema.</small>
         </div>
+
+        <h4>Archivos para la Apprendo Clase</h4>
+
         <div class="form-group">
-            <label for="exampleFormControlFile1">Indicar archivo de video de la Apprendo Clase</label>
-            <input formControlName="fileVideo"  type="file" accept="video/*" (change)="onVideoFileSelect($event)" class="form-control-file" id="exampleFormControlFile1">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><mat-icon>missed_video_call</mat-icon></span>
+            </div>
+            <div class="custom-file">
+              <input formControlName="fileVideo"  type="file" accept="video/*" (change)="onVideoFileSelect($event)" class="custom-file-input" id="videoFIle">
+              <label class="custom-file-label" id="labelVideo" for="videoFIle"></label>
+            </div></div>
+          <small class="form-text text-muted">Indicar el archivo correspondiente al video de la Apprendo Clase.</small>
         </div>
+
         <div class="form-group">
-            <label for="exampleFormControlFile1">Indicar archivo pdf de la Apprendo Clase</label>
-            <input formControlName="filePdf"  type="file" accept="application/pdf" (change)="onPdfFileSelect($event)" class="form-control-file" id="exampleFormControlFile1">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><mat-icon>picture_as_pdf</mat-icon></span>
+            </div>
+            <div class="custom-file">
+              <input formControlName="filePdf"  type="file" accept="application/pdf" (change)="onPdfFileSelect($event)" class="custom-file-input" id="docFile">
+              <label class="custom-file-label" id="labelDoc" for="docFile"></label>
+            </div></div>
+          <small class="form-text text-muted">Indicar el documento PDF que se anexará en la Apprendo Clase.</small>
         </div>
-        <div class="center"><button type="submit" class="btn btn-primary">Subir Clase</button></div>
-      </form>
+        
+        <div class="center">
+          <button type="submit" class="btn btn-primary" [disabled]="!contentUploadForm.valid">Subir Clase</button>
+        </div>
+    
+    </form>
 </div>
 
 </div>

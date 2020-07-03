@@ -12,5 +12,34 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 60px;
     margin-bottom: 20px;
+}
+
+.input-group, .custom-file-label, .custom-file-label::after {
+    height: 40px;
+    overflow: hidden;
+}
+
+.form-group mat-icon {
+    cursor: default;
+}
+
+.custom-file-label {
+    z-index: unset;
+    cursor: pointer;
+}
+
+.custom-file-label, .custom-file-label::after {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-file-label::after {
+    content: "Buscar";
+}
+.input-group-text, .custom-file-label::after, .btn-primary {
+    color: white;
+    background-color: #58a1e6;
 }

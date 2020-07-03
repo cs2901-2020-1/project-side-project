@@ -31,13 +31,14 @@ export class SubirContenidoComponent implements OnInit {
       fileVideo: ['', Validators.required],
       filePdf: ['', Validators.required]
     });
+    this.setDefaultFiles();
   }
 
   onUpload(){
     let request = {
       'title': this.titulo.value,
       'description': this.descripcion.value,
-      'topicId': 1
+      'topicId': this.tema.value
     }
 
     let video = this.fileVideo.value
@@ -48,8 +49,9 @@ export class SubirContenidoComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data);
-            this.contentUploadForm.reset;
-            this.openSnackBar('Se subió el contenido con éxito 👍', 'X');
+            this.contentUploadForm.reset();
+            this.setDefaultFiles();
+            this.openSnackBar('Se subió con éxito', 'Cerrar');
           },
           err => {
             console.log(err)
@@ -71,7 +73,6 @@ export class SubirContenidoComponent implements OnInit {
       .subscribe(
         data => {
           this.topics = data.topics;
-          console.log(this.topics);
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
@@ -82,6 +83,10 @@ export class SubirContenidoComponent implements OnInit {
 
   onVideoFileSelect(event) {
     if (event.target.files.length > 0) {
+      let filename = event.target.value.split( '\\' ).pop();
+      if (filename){
+        this.labelVideo.innerHTML = filename;
+      }
       const file = event.target.files[0];
       this.contentUploadForm.get('fileVideo').setValue(file);
     }
@@ -89,9 +94,20 @@ export class SubirContenidoComponent implements OnInit {
 
   onPdfFileSelect(event) {
     if (event.target.files.length > 0) {
+      let filename = event.target.value.split( '\\' ).pop();
+      if (filename){
+        this.labelPdf.innerHTML = filename;
+      }
       const file = event.target.files[0];
       this.contentUploadForm.get('filePdf').setValue(file);
     }
+  }
+
+  setDefaultFiles() {
+    this.fileVideo.setValue('');
+    this.labelVideo.innerHTML = 'Subir video';
+    this.filePdf.setValue('');
+    this.labelPdf.innerHTML = 'Subir PDF';
   }
 
   get curso(){
@@ -112,6 +128,14 @@ export class SubirContenidoComponent implements OnInit {
 
   get fileVideo(){
     return this.contentUploadForm.get('fileVideo')
+  }
+
+  get labelVideo(){
+    return document.getElementById('labelVideo');
+  }
+
+  get labelPdf(){
+    return document.getElementById('labelDoc');
   }
 
   get filePdf(){
