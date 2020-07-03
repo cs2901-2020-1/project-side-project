@@ -24,6 +24,10 @@
                     <button type="button" class="btn btn-sm btn-outline-secondary">Ir a clase</button>
                   </a>
                 </div>
+                <div class="divLike">
+                  <mat-icon>favorite_border</mat-icon>
+                  <span class="like">{{lesson.model.numLikes}}</span>
+                </div>
                 <small class="text-muted">{{lesson.appLesson.applicationDate | date : 'dd-MM-yyyy'}}</small>
               </div>
             </div>

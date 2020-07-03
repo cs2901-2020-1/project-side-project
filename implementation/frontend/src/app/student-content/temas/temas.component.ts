@@ -30,6 +30,7 @@ export class TemasComponent implements OnInit {
       .subscribe(
         data => {
           this.topic = data
+          console.log(this.topic)
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');

@@ -14,3 +14,13 @@ text {
   font-size: 17px;
   font-weight: bold;
 }
+
+.divLike {
+  display: flex;
+}
+
+.like {
+  display: inline-block;
+  transform: translateY(2px);
+  margin-left: 3px;
+}
