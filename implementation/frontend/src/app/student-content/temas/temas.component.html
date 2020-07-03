@@ -18,17 +18,22 @@
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="18%" y="50%" fill="#eceeef" dy=".3em">{{lesson.title}}</text></svg>
             <div class="card-body">
               <p class="card-text">{{lesson.description}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a [routerLink]="['/video/' + lesson.id]">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Ir a clase</button>
-                  </a>
+              <div class="d-flex justify-content-between appclase-foot">
+                <div class="btn-like">
+                  <div class="btn-group">
+                    <a [routerLink]="['/video/' + lesson.id]">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Ir a clase</button>
+                    </a>
+                  </div>
+                  <div class="divLike">
+                    <mat-icon>favorite_border</mat-icon>
+                    <span class="like">{{lesson.model.numLikes}}</span>
+                  </div>
                 </div>
-                <div class="divLike">
-                  <mat-icon>favorite_border</mat-icon>
-                  <span class="like">{{lesson.model.numLikes}}</span>
+                <div>
+                  <small class="text-muted">{{lesson.appLesson.applicationDate | date : 'dd-MM-yyyy'}}</small>
                 </div>
-                <small class="text-muted">{{lesson.appLesson.applicationDate | date : 'dd-MM-yyyy'}}</small>
+                <!-- <small class="text-muted">{{lesson.appLesson.applicationDate | date : 'dd-MM-yyyy'}}</small> -->
               </div>
             </div>
           </div>

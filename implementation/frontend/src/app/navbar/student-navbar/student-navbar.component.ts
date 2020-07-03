@@ -14,7 +14,6 @@ export class StudentNavbarComponent implements OnInit {
     private authService: AuthService
   ) {
     this.fullName = authService.currentUserFullName();
-    console.log(this.fullName)
   }
 
   ngOnInit(): void {

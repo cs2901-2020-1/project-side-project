@@ -18,10 +18,20 @@ text {
 .divLike {
   display: flex;
   color: rgba(59, 59, 59, 0.6);
+  margin-left: 3px;
 }
 
 .like {
   display: inline-block;
   transform: translateY(2px);
   margin-left: 3px;
+}
+
+.btn-like {
+  display: flex;
+  align-items: flex-end;
+}
+
+.appclase-foot {
+  align-items: flex-end;
 }
