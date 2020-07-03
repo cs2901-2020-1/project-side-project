@@ -1,0 +1,16 @@
+.all .container {
+    max-width: 700px;
+    padding: 35px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    border: 1px solid #ededed;
+    box-shadow: 0 0 20px #eeeeee;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}

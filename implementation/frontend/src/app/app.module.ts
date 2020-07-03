@@ -15,6 +15,7 @@ import { NavbarModule } from './navbar/navbar.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BnNgIdleService } from 'bn-ng-idle';
 import { StudentContentModule } from './student-content/student-content.module';
+import { TeacherContentModule } from './teacher-content/teacher-content.module'
 
 
 
@@ -36,6 +37,7 @@ import { StudentContentModule } from './student-content/student-content.module';
     MaterialModule,
     NavbarModule,
     StudentContentModule,
+    TeacherContentModule,
     SharedModule.forRoot()
   ],
   providers: [BnNgIdleService],
