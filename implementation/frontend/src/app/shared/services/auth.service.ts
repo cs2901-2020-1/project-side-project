@@ -81,6 +81,12 @@ export class AuthService {
         return localStorage.getItem('currentUserFullName');
     }
 
+    public currentUserName(): string {
+        var fullName = localStorage.getItem('currentUserFullName');
+        var separar = fullName.split(" ", 2);
+        return separar[0];
+    }
+
     getTokenExpirationDate(token: string): Date {
         let decoded = {exp: undefined};
 

@@ -11,13 +11,13 @@ import { AuthService } from 'src/app/shared/services';
 export class TeacherDashboardComponent implements OnInit {
 
   courses: any;
-  fullName: string;
+  name: string;
 
   constructor(
       private courseService: CourseService,
       public snackBar: MatSnackBar,
       private authService: AuthService) {
-    this.fullName = authService.currentUserFullName();
+    this.name = authService.currentUserName();
     this.courseService.getAll()
       .pipe()
       .subscribe(
