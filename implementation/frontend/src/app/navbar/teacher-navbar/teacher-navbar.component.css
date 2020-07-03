@@ -20,3 +20,8 @@
     transition: .5s;
     z-index: 1000;
 }
+
+.dropdown-item {
+    margin-bottom: 5px;
+    cursor: pointer;
+}
