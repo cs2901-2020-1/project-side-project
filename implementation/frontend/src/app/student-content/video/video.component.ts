@@ -49,7 +49,7 @@ export class VideoComponent implements OnInit {
           this.like = data.like
           this.comments = data.comments
           this.lesson.videoPath = environment.APIEndpoint + '/files/' + data.videoPath
-          this.comments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          this.comments.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
@@ -69,7 +69,7 @@ export class VideoComponent implements OnInit {
         data => {
           this.form.reset()
           this.comments.push(data)
-          this.comments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          this.comments.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');

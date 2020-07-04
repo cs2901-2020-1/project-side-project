@@ -13,7 +13,7 @@
                     {{lesson.title}}
                 </h2>
                 <div class="like" (click)="onLike()">
-                    <span >Me gusta &nbsp; </span>
+                    <span id="words">Me gusta &nbsp; </span>
                     <mat-icon *ngIf="!like">favorite_border</mat-icon>
                     <mat-icon *ngIf="like" [ngStyle]="{'color':'#f6636f'}">favorite</mat-icon>
                     <span id="number">
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="profesor">
-            Profesor
+            <span>Profesor</span>
             <a href="">
                 Jesus Bellido
             </a>
