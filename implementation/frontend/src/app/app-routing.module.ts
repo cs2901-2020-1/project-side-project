@@ -7,7 +7,8 @@ import { VideoComponent } from './student-content/video/video.component';
 import { TemasComponent } from './student-content/temas/temas.component';
 import { AuthGuard, LogicGuard } from './shared/guards';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-import { SubirContenidoComponent } from './teacher-content/subir-contenido/subir-contenido.component'
+import { SubirContenidoComponent } from './teacher-content/subir-contenido/subir-contenido.component';
+import { OwnContentComponent } from './teacher-content/own-content/own-content.component'
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'subir-contenido',
     component: SubirContenidoComponent
+  },
+  {
+    path: 'contenido-propio',
+    component: OwnContentComponent
   },
   {
     path: '**',
