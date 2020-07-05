@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import data.models.TeacherLesson;
 import org.hibernate.annotations.Type;
 
 import data.models.CommentModel;
@@ -38,6 +39,10 @@ public class Lesson implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", nullable = false)
     private Topic topic;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id", nullable = false)
+    private Teacher teacher;
 
     @OneToOne(mappedBy = "lesson")
     private AppLesson appLesson;
@@ -101,6 +106,15 @@ public class Lesson implements Serializable {
         this.topic = topic;
     }
 
+    @JsonIgnore
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     public AppLesson getAppLesson() {
         return appLesson;
     }
@@ -133,6 +147,7 @@ public class Lesson implements Serializable {
 
         model.setVideoPath(videoPath);
         model.setDocumentPath(documentPath);
+        model.setTeacher(teacher.getUser().getFullName());
 
         List<CommentModel> items = new ArrayList<>();
 
@@ -147,5 +162,27 @@ public class Lesson implements Serializable {
         model.setNumLikes(numLikes);
 
         return model;
+    }
+
+    @JsonIgnore
+    public TeacherLesson getTeacherLesson() {
+        TeacherLesson teacherLesson = new TeacherLesson();
+
+        teacherLesson.setLessonId(this.id);
+        teacherLesson.setTitle(this.title);
+        teacherLesson.setDescription(this.description);
+        teacherLesson.setDate(this.getAppLesson().getApplicationDate());
+        teacherLesson.setApproved(this.getAppLesson().getApproved());
+        teacherLesson.setVideoPath(this.videoPath);
+        teacherLesson.setDocumentPath(this.documentPath);
+        teacherLesson.setTeacher(this.teacher.getUser().getFullName());
+
+        teacherLesson.setTopicId(this.topic.getId());
+        teacherLesson.setTopic(this.topic.getName());
+        Course course = this.topic.getCourse();
+        teacherLesson.setCourseId(course.getId());
+        teacherLesson.setCourse(course.getName());
+
+        return teacherLesson;
     }
 }

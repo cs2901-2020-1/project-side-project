@@ -30,6 +30,14 @@ export class LessonService {
     )
   }
 
+  getTeacherLessons(userId: number) : Observable<any> {
+    return this.http.get(LessonService.path + 'teacher/' + userId).pipe(
+      map(data => {
+        return data
+      })
+    )
+  }
+
   commentVideo(comment: any) : Observable<any> {
     return this.http.post<any>(LessonService.path + 'comment', comment)
             .pipe(map(data => {

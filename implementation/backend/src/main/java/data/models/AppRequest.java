@@ -15,6 +15,7 @@ public class AppRequest implements Serializable {
     private String documentPath;
 
     private Long topicId;
+    private Long teacherId;
 
     public AppRequest() {}
 
@@ -69,5 +70,13 @@ public class AppRequest implements Serializable {
         lesson.setVideoPath(videoPath);
         lesson.setDocumentPath(documentPath);
         return lesson;
+    }
+
+    public Long getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
     }
 }

@@ -12,6 +12,7 @@ import data.models.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -52,6 +53,12 @@ public class LessonController {
         model.setLike(like != null);
 
         return new ResponseEntity<>(model, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/teacher/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getLessons(@PathVariable Long id) {
+        List<TeacherLesson> lessons = service.getTeacherLessons(id);
+        return new ResponseEntity<>(lessons, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/comment", method = RequestMethod.POST)

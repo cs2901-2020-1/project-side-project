@@ -1,14 +1,10 @@
 package services;
 
-import data.entities.AppLesson;
-import data.entities.Comment;
-import data.entities.Lesson;
-import data.entities.Like;
-import data.entities.Topic;
-import data.entities.Usuario;
+import data.entities.*;
 import data.models.AppRequest;
 import data.models.CommentRequest;
 import data.models.LikeModel;
+import data.models.TeacherLesson;
 import data.repositories.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +27,9 @@ public class LessonService {
     private TopicService topicService;
 
     @Autowired
+    private TeacherService teacherService;
+
+    @Autowired
     private UsuarioService usuarioService;
 
     @Autowired
@@ -48,6 +47,17 @@ public class LessonService {
         return items;
     }
 
+    public List<TeacherLesson> getTeacherLessons(Long userId){
+        Long teacherId = teacherService.findAsUser(userId).getId();
+
+        List<TeacherLesson> lessons = new ArrayList<>();
+        for (Lesson item :repository.findByTeacherId(teacherId)) {
+            lessons.add(item.getTeacherLesson());
+        }
+
+        return lessons;
+    }
+
     public Lesson findOne(Long id){
         return repository.findById(id).get();
     }
@@ -58,10 +68,12 @@ public class LessonService {
 
     public Lesson createAppLesson(AppRequest appRequest) {
         Topic topic = topicService.findOne(appRequest.getTopicId());
+        Teacher teacher = teacherService.findOne(appRequest.getTeacherId());
         Lesson lesson = appRequest.getLesson();
         AppLesson appLesson = new AppLesson();
 
         lesson.setTopic(topic);
+        lesson.setTeacher(teacher);
         create(lesson);
 
         lesson.setAppLesson(appLesson);
