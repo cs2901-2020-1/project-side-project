@@ -1,9 +1,6 @@
 package controller;
 
-import services.LessonService;
-import services.LikeService;
-import services.StorageService;
-import services.UserService;
+import services.*;
 import data.entities.Comment;
 import data.entities.Lesson;
 import data.entities.Like;
@@ -35,6 +32,9 @@ public class LessonController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private TeacherService teacherService;
 
     @Autowired
     private LikeService likeService;
@@ -93,6 +93,10 @@ public class LessonController {
         } catch (IOException e) {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
+        Long userId = userService.getCurrentUser().getId();
+        Long teacherId = teacherService.findAsUser(userId).getId();
+        appRequest.setTeacherId(teacherId);
 
         Path videoFileName = storageService.store(video);
         Path docFileName = storageService.store(doc);

@@ -44,14 +44,14 @@ export class SubirContenidoComponent implements OnInit {
     let video = this.fileVideo.value
     let document = this.filePdf.value
 
-    this.lessonService.uploadVideo(video, document, request)
+    this.lessonService.uploadVideo(document, video, request)
         .pipe()
         .subscribe(
           data => {
             console.log(data);
             this.contentUploadForm.reset();
             this.setDefaultFiles();
-            this.openSnackBar('Se subió con éxito', 'Cerrar');
+            this.openSnackBar('Se subió con éxito 👍', 'Cerrar');
           },
           err => {
             console.log(err)
