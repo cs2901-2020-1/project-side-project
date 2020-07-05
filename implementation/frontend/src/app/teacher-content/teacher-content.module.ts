@@ -7,13 +7,15 @@ import { NavbarModule } from '../navbar/navbar.module';
 import { MaterialModule } from '../material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LessonContentComponent } from './lesson-content/lesson-content.component';
 
 
 
 @NgModule({
   declarations: [
     SubirContenidoComponent,
-    OwnContentComponent
+    OwnContentComponent,
+    LessonContentComponent
   ],
   imports: [
     CommonModule,

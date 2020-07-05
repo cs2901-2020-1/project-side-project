@@ -9,6 +9,7 @@ import { AuthGuard, LogicGuard } from './shared/guards';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { SubirContenidoComponent } from './teacher-content/subir-contenido/subir-contenido.component';
 import { OwnContentComponent } from './teacher-content/own-content/own-content.component'
+import { LessonContentComponent } from './teacher-content/lesson-content/lesson-content.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'contenido-propio',
     component: OwnContentComponent
+  },
+  {
+    path: 'lesson',
+    component: LessonContentComponent
   },
   {
     path: '**',
