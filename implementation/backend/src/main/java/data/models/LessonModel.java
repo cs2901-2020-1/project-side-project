@@ -10,6 +10,8 @@ public class LessonModel {
     private String videoPath;
     private String documentPath;
 
+    private String teacher;
+
     private Long numLikes;
     private Boolean like;
 
@@ -71,5 +73,13 @@ public class LessonModel {
 
     public void setLike(Boolean like) {
         this.like = like;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 }

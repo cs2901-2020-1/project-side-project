@@ -25,6 +25,10 @@ public class TeacherService {
         return items;
     }
 
+    public Teacher findAsUser(long id) {
+        return repository.findByUserId(id);
+    }
+
     public Teacher findOne(Long id){
         return repository.findById(id).get();
     }

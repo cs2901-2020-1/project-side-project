@@ -1,2 +1,51 @@
 <app-navbar></app-navbar>
-<p>own-content works!</p>
+<h2>Todas sus clases</h2>
+<div class="container tbl">
+    <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th class="grande" scope="col">Nombre</th>
+            <th class="pequenno" scope="col">Curso</th>
+            <th class="mediano" scope="col">Tema</th>
+            <th class="mediano" scope="col">Fecha de solicitud</th>
+            <th class="pequenno" scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let lesson of lessons">
+            <td> <mat-icon>class</mat-icon> 
+              <a>{{formatTitle(lesson.title)}}</a>
+            </td>
+
+            <td>
+              {{lesson.course}}
+            </td>
+
+            <td>
+              {{lesson.topic}}
+            </td>
+
+            <td>
+              {{lesson.date | date : 'dd MMM yyyy h:mm a'}}
+            </td>
+            
+            <td>
+                <div class="badge badge-success" *ngIf="lesson.approved; else elseBlock">
+                    Aprovado
+                </div>
+                <ng-template #elseBlock>
+                    <div class="badge badge-secondary" *ngIf="lesson.approved == null; else elseBlock2">
+                        En espera
+                    </div>
+                    <ng-template #elseBlock2>
+                        <div class="badge badge-danger">
+                            No aprobado
+                        </div>
+                    </ng-template>
+                </ng-template>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+</div>
