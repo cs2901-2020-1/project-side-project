@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseService } from 'src/app/shared/services';
+import { CourseService, AuthService } from 'src/app/shared/services';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LessonService } from 'src/app/shared/services';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -19,6 +19,7 @@ export class SubirContenidoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private lessonService: LessonService,
     private courseService: CourseService,
+    private authService: AuthService,
     public snackBar: MatSnackBar
   ) { }
 
@@ -38,7 +39,8 @@ export class SubirContenidoComponent implements OnInit {
     let request = {
       'title': this.titulo.value,
       'description': this.descripcion.value,
-      'topicId': this.tema.value
+      'topicId': this.tema.value,
+      'teacherId': this.authService.currentUserId(),
     }
 
     let video = this.fileVideo.value
