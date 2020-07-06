@@ -34,9 +34,6 @@ public class LessonController {
     private UserService userService;
 
     @Autowired
-    private TeacherService teacherService;
-
-    @Autowired
     private LikeService likeService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -58,6 +55,9 @@ public class LessonController {
     @RequestMapping(value = "/teacher/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getLessons(@PathVariable Long id) {
         List<TeacherLesson> lessons = service.getTeacherLessons(id);
+        if (lessons == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(lessons, HttpStatus.OK);
     }
 
@@ -93,10 +93,6 @@ public class LessonController {
         } catch (IOException e) {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-        Long userId = userService.getCurrentUser().getId();
-        Long teacherId = teacherService.findAsUser(userId).getId();
-        appRequest.setTeacherId(teacherId);
 
         Path videoFileName = storageService.store(video);
         Path docFileName = storageService.store(doc);

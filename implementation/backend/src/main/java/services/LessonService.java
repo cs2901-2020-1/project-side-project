@@ -48,10 +48,15 @@ public class LessonService {
     }
 
     public List<TeacherLesson> getTeacherLessons(Long userId){
-        Long teacherId = teacherService.findAsUser(userId).getId();
+        Teacher teacher = teacherService.findAsUser(userId);
+
+        if (teacher == null) {
+            return null;
+        }
 
         List<TeacherLesson> lessons = new ArrayList<>();
-        for (Lesson item :repository.findByTeacherId(teacherId)) {
+
+        for (Lesson item : teacher.getLessons()) {
             lessons.add(item.getTeacherLesson());
         }
 
@@ -68,7 +73,7 @@ public class LessonService {
 
     public Lesson createAppLesson(AppRequest appRequest) {
         Topic topic = topicService.findOne(appRequest.getTopicId());
-        Teacher teacher = teacherService.findOne(appRequest.getTeacherId());
+        Teacher teacher = teacherService.findAsUser(appRequest.getTeacherId());
         Lesson lesson = appRequest.getLesson();
         AppLesson appLesson = new AppLesson();
 
