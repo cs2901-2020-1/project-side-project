@@ -14,7 +14,7 @@
 ![](images/Sprint_1.png)
 
 ## Sprint 2
-![](images/Sprint_2.png)
+![](images/Sprint2.png)
 
 ## Contenido
 ### [Glosario](docs/glossary.md)
