@@ -1,10 +1,7 @@
 package controller;
 
+import data.entities.*;
 import services.*;
-import data.entities.Comment;
-import data.entities.Lesson;
-import data.entities.Like;
-import data.entities.Usuario;
 import data.models.*;
 
 import java.io.IOException;
@@ -59,6 +56,16 @@ public class LessonController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(lessons, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/preview/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getLessonModel(@PathVariable Long id) {
+        Lesson lesson = service.findOne(id);
+        if (lesson == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        TeacherLesson model = lesson.getTeacherLesson();
+        return new ResponseEntity<>(model, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
