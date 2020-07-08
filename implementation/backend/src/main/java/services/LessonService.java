@@ -56,7 +56,7 @@ public class LessonService {
 
         List<TeacherLesson> lessons = new ArrayList<>();
 
-        for (Lesson item : teacher.getLessons()) {
+        for (Lesson item : repository.findByTeacherIdOrderByIdDesc(teacher.getId())) {
             lessons.add(item.getTeacherLesson());
         }
 

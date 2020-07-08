@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface LessonRepository extends CrudRepository<Lesson, Long> {
 
-    public List<Lesson> findByTeacherId(Long teacherId);
+    public List<Lesson> findByTeacherIdOrderByIdDesc(Long teacherId);
 }
