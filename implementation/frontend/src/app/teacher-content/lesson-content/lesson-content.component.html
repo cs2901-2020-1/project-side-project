@@ -1,4 +1,68 @@
 <app-navbar></app-navbar>
 <div class="container">
-    <p>lesson-content works!</p>
+    <h2>Detalles de la clase</h2>
+    <div class="estado">
+        <p>Estado</p>
+        <div class="badge badge-success">
+            Aprovado
+        </div>
+    </div>
+    <section class="lesson">
+        <div class="media">
+            <div class="video">
+                <video controls id="rpd-video">
+                    <source src="../../../assets/videos/video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="buttons">
+                <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
+                    <mat-icon>view_carousel</mat-icon> Ver <span class="oculto">documento</span> PDF
+                </button>
+                <a class="btn" href="" target="_blank" >
+                    Ver <span class="oculto">Apprendo</span> clase <mat-icon>launch</mat-icon>
+                </a>
+            </div>
+        </div>
+        <div class="info">
+            <div class="groupo">
+                <h3 class="titulo">Título:</h3>
+                <p class="hi">Titulo de la clase</p>
+            </div>
+            <div class="groupo">
+                <h3 class="titulo">Descripción:</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam autem ipsum aliquam molestiae!</p>
+            </div>
+            <div class="groupo">
+                <h3 class="titulo">Curso:</h3>
+                <p>
+                    Nombre del curso 
+                    <a href="" target="_blank"><mat-icon>launch</mat-icon></a>
+                </p>
+            </div>
+            <div class="groupo">
+                <h3 class="titulo">Tema</h3>
+                <p>
+                    Nombre del tema
+                    <a href="" target="_blank"><mat-icon>launch</mat-icon></a>
+                </p>
+            </div>
+        </div>
+
+                <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <iframe src="../../../assets/videos/PDF.pdf" frameborder="0"></iframe>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
 </div>

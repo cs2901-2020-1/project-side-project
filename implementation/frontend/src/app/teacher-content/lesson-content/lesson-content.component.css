@@ -1,3 +1,145 @@
 .container {
+    margin: auto auto 30px;
+    padding: 15px;
+}
+
+h2 {
     margin-top: 100px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 29px;
+    margin-bottom: 5px;
+    color: #4b4b4b;
+}
+
+.estado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.estado p {
+    display: inline-block;
+    margin: 0;
+    color: #4b4b4b;
+    font-size: 16px;
+}
+
+.estado .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 13px;
+    margin-left: 7px;
+}
+
+.lesson a {
+    cursor: pointer;
+    color: inherit;
+}
+
+.media, .info, .video, .buttons {
+    width: 100%;
+}
+
+.media {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+video {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 2px 1px #d1d1d1;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lesson .btn {
+     background-color: #FF007A;
+     color: white;
+     margin: 5px 10px;
+}
+
+.oculto {
+    display: none;
+}
+
+.lesson mat-icon {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    height: auto;
+    transform: translateY(4px);
+}
+
+.groupo {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    box-shadow: 0px 1px 2px 1px #d1d1d1;
+}
+
+.groupo .titulo {
+    display: inline-block;
+    padding-left: 6px;
+    font-size: 13px;
+    line-height: inherit;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.groupo p {
+    line-height: inherit;
+    margin: 0;
+    font-size: 15.5px;
+    color: #5e5e5e;
+    padding: 5px 13px;
+}
+
+.groupo .hi {
+    font-size: 17px;
+}
+
+.lesson .modal-header {
+    padding: 5px 15px;
+}
+
+.lesson .modal-body {
+    padding: 0;
+    height: 125vw;
+    max-height: 80vh;
+}
+
+.lesson iframe {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 992px) {
+    .lesson {
+        display: flex;
+    }
+    .media {
+        width: 60%;
+        padding: 10px 20px;
+    }
+    .info {
+        width: 40%;
+        padding: 10px 20px;
+    }
+    .lesson .modal-body {
+        height: 85vh;
+        max-height: 85vh;
+    }
+    .lesson .btn:hover {
+        box-shadow: 0px 1px 3px 2px #d1d1d1;
+    }
+    .oculto {
+        display: inline-block;
+    }
 }
