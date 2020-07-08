@@ -120,7 +120,7 @@ public class TestDataController {
         
 
         AppRequest ap1 = new AppRequest();
-        ap1.setTitle("aritmetica polinomial");
+        ap1.setTitle("Aritmetica polinomial");
         ap1.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
         ap1.setVideoPath("video.mp4");
         ap1.setTopicId(t1.getId());
