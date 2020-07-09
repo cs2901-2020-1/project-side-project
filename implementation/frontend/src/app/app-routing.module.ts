@@ -47,7 +47,7 @@ const routes: Routes = [
     component: OwnContentComponent
   },
   {
-    path: 'lesson',
+    path: 'lesson/:id',
     component: LessonContentComponent
   },
   {
