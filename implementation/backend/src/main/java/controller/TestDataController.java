@@ -130,6 +130,7 @@ public class TestDataController {
         AppRequest ap2 = new AppRequest();
         ap2.setTitle("Introducción a los polinomios");
         ap2.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap2.setDocumentPath("intro_polinomios.pdf");
         ap2.setVideoPath("video.mp4");
         ap2.setTopicId(t1.getId());
         ap2.setTeacherId(1L);

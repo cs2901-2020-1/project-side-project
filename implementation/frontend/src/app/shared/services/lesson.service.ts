@@ -75,4 +75,11 @@ export class LessonService {
             }
         ))
   }
+
+  downloadContent(getfile): Observable<any>{    
+    return this.http.get(
+      getfile, 
+      { responseType: 'blob' });
+  }
+
 }

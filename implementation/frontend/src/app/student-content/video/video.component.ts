@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import * as fileSaver from 'file-saver';
 
 @Component({
   selector: 'app-video',
@@ -49,7 +50,10 @@ export class VideoComponent implements OnInit {
           this.like = data.like
           this.comments = data.comments
           this.lesson.videoPath = environment.APIEndpoint + '/files/' + data.videoPath
+          this.lesson.pdfPath = environment.APIEndpoint + '/files/' + data.documentPath
           this.comments.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+          console.log(this.lesson.videoPath)
+          console.log(this.lesson.pdfPath)
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
@@ -98,6 +102,15 @@ export class VideoComponent implements OnInit {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
         }
       )
+  }
+
+  download() {
+    console.log("This video file:")
+    console.log(this.lesson.videoPath)
+    this.lessonService.downloadContent(this.lesson.videoPath).subscribe(response => {
+			fileSaver.saveAs(response, '');
+		}), error => console.log('Error downloading the file'),
+                 () => console.info('File downloaded successfully');
   }
 
   get content(){
