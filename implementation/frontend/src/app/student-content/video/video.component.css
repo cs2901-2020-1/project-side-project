@@ -59,6 +59,10 @@ main {
 	background: rgba(29, 135, 216, 0.8);
 }
 
+.download-link {
+    cursor: pointer;
+}
+
 .information, .comments {
     width: 90vw;
     max-width: 1000px;
