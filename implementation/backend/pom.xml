@@ -16,6 +16,10 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<sonar.projectKey>cs2901-2020-1_project-side-project</sonar.projectKey>
+		<sonar.organization>cs2901-2020-1</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>9ce074a4eb0a9793e481d5fcd89e376cd4427622</sonar.login>
 	</properties>
 
 	<dependencies>
