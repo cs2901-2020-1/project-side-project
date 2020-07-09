@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { LessonService} from '../../shared/services';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-lesson-content',
@@ -12,10 +13,16 @@ export class LessonContentComponent implements OnInit {
 
   lesson : any;
 
+  pdfPath : any;
+
+  videoPath : any;
+
+  videoLoad : boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     public snackBar: MatSnackBar,
-    private lessonService: LessonService) { 
+    private lessonService: LessonService) {
       this.getRouteParams();
   }
 
@@ -30,6 +37,8 @@ export class LessonContentComponent implements OnInit {
       .subscribe(
         data => {
           this.lesson = data;
+          this.lesson.videoPath = environment.APIEndpoint + '/files/' + data.videoPath;
+          this.lesson.documentPath = environment.APIEndpoint + '/files/' + data.documentPath;
           console.log(this.lesson);
         },
         err => {

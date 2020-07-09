@@ -1,19 +1,34 @@
 <app-navbar></app-navbar>
 <div class="container">
+
     <h2>Detalles de la clase</h2>
     <div class="estado">
         <p>Estado</p>
-        <div class="badge badge-success">
+        <div class="badge badge-success" *ngIf="lesson.approved; else elseBlock">
             Aprovado
         </div>
+        <ng-template #elseBlock>
+            <div class="badge badge-secondary" *ngIf="lesson.approved == null; else elseBlock2">
+                En espera
+            </div>
+            <ng-template #elseBlock2>
+                <div class="badge badge-danger">
+                    No aprobado
+                </div>
+            </ng-template>
+        </ng-template>
     </div>
+
     <section class="lesson">
+
         <div class="media">
+
             <div class="video">
                 <video controls id="rpd-video">
-                    <source src="../../../assets/videos/video.mp4" type="video/mp4">
+                    <source src="{{lesson.videoPath}}" type="video/mp4">
                 </video>
             </div>
+            
             <div class="buttons">
                 <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
                     <mat-icon>view_carousel</mat-icon> Ver <span class="oculto">documento</span> PDF
@@ -22,27 +37,29 @@
                     Ver <span class="oculto">Apprendo</span> clase <mat-icon>launch</mat-icon>
                 </a>
             </div>
+
         </div>
+
         <div class="info">
             <div class="groupo">
                 <h3 class="titulo">Título:</h3>
-                <p class="hi">Titulo de la clase</p>
+                <p class="hi">{{lesson.title}}</p>
             </div>
             <div class="groupo">
                 <h3 class="titulo">Descripción:</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam autem ipsum aliquam molestiae!</p>
+                <p>{{lesson.description}}</p>
             </div>
             <div class="groupo">
                 <h3 class="titulo">Curso:</h3>
                 <p>
-                    Nombre del curso 
+                    {{lesson.course}} 
                     <a href="" target="_blank"><mat-icon>launch</mat-icon></a>
                 </p>
             </div>
             <div class="groupo">
                 <h3 class="titulo">Tema</h3>
                 <p>
-                    Nombre del tema
+                    {{lesson.topic}}
                     <a href="" target="_blank"><mat-icon>launch</mat-icon></a>
                 </p>
             </div>
