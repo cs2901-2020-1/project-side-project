@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div *ngIf="loaded" class="container">
 
     <h2>Detalles de la clase</h2>
     <div class="estado">
@@ -30,10 +30,13 @@
             </div>
             
             <div class="buttons">
-                <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
+                <!--<button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
                     <mat-icon>view_carousel</mat-icon> Ver <span class="oculto">documento</span> PDF
-                </button>
-                <a class="btn" href="" target="_blank" >
+                </button>-->
+                <a *ngIf="lesson.documentPath" class="btn" (click)="download()"> 
+                    <mat-icon>cloud_download</mat-icon> Descargar PDF <span class="oculto">adjunto</span>
+                </a>
+                <a *ngIf="lesson.approved" [routerLink]="['/video/' + lesson.lessonId]" class="btn" href="" target="_blank" >
                     Ver <span class="oculto">Apprendo</span> clase <mat-icon>launch</mat-icon>
                 </a>
             </div>
@@ -53,19 +56,19 @@
                 <h3 class="titulo">Curso:</h3>
                 <p>
                     {{lesson.course}} 
-                    <a href="" target="_blank"><mat-icon>launch</mat-icon></a>
+                    <!--<a href="" target="_blank"><mat-icon>launch</mat-icon></a>-->
                 </p>
             </div>
             <div class="groupo">
                 <h3 class="titulo">Tema</h3>
                 <p>
                     {{lesson.topic}}
-                    <a href="" target="_blank"><mat-icon>launch</mat-icon></a>
+                    <a [routerLink]="['/tema/' + lesson.topicId]" target="_blank"><mat-icon>launch</mat-icon></a>
                 </p>
             </div>
         </div>
 
-                <!-- Modal -->
+         <!-- Modal 
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
@@ -79,7 +82,7 @@
                 </div>
             </div>
             </div>
-        </div>
+        </div>-->
     </section>
 
 </div>

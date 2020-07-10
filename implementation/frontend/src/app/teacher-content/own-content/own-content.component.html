@@ -14,7 +14,7 @@
         <tbody>
           <tr *ngFor = "let lesson of lessons">
             <td> <mat-icon>class</mat-icon> 
-              <a>{{formatTitle(lesson.title)}}</a>
+              <a [routerLink]="['/lesson/' + lesson.lessonId]" >{{formatTitle(lesson.title)}}</a>
             </td>
 
             <td>
