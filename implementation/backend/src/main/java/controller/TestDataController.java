@@ -47,10 +47,10 @@ public class TestDataController {
             roleService.create(rTeacher);
 
             TeacherSignup teacher = new TeacherSignup();
-            teacher.setEmail("ccupe@utec.edu.pe");
+            teacher.setEmail("jbellido@utec.edu.pe");
             teacher.setPassword("123456");
-            teacher.setName("Carlos");
-            teacher.setLastName("Cupe");
+            teacher.setName("Jesus");
+            teacher.setLastName("Bellido");
             teacher.setSchool("UTEC");
             usuarioService.createTeacher(teacher);
         }
@@ -122,6 +122,7 @@ public class TestDataController {
         AppRequest ap1 = new AppRequest();
         ap1.setTitle("Aritmetica polinomial");
         ap1.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap1.setDocumentPath("intro_polinomios.pdf");
         ap1.setVideoPath("video.mp4");
         ap1.setTopicId(t1.getId());
         ap1.setTeacherId(1L);
@@ -139,6 +140,7 @@ public class TestDataController {
         AppRequest ap3 = new AppRequest();
         ap3.setTitle("Factorizando monomios");
         ap3.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap3.setDocumentPath("intro_polinomios.pdf");
         ap3.setVideoPath("video.mp4");
         ap3.setTopicId(t2.getId());
         ap3.setTeacherId(1L);
@@ -147,6 +149,7 @@ public class TestDataController {
         AppRequest ap4 = new AppRequest();
         ap4.setTitle("Métodos para dividir polinomios");
         ap4.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap4.setDocumentPath("intro_polinomios.pdf");
         ap4.setVideoPath("video.mp4");
         ap4.setTopicId(t3.getId());
         ap4.setTeacherId(1L);
@@ -155,6 +158,7 @@ public class TestDataController {
         AppRequest ap5 = new AppRequest();
         ap5.setTitle("Teorema del resto");
         ap5.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap5.setDocumentPath("intro_polinomios.pdf");
         ap5.setVideoPath("video.mp4");
         ap5.setTopicId(t3.getId());  
         ap5.setTeacherId(1L);

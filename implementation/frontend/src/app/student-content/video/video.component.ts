@@ -104,10 +104,20 @@ export class VideoComponent implements OnInit {
       )
   }
 
-  download() {
+  downloadVideo() {
     console.log("This video file:")
     console.log(this.lesson.videoPath)
     this.lessonService.downloadContent(this.lesson.videoPath).subscribe(response => {
+			fileSaver.saveAs(response, '');
+		}), error => console.log('Error downloading the file'),
+                 () => console.info('File downloaded successfully');
+  }
+
+
+  downloadPdf() {
+    console.log("This pdf file:")
+    console.log(this.lesson.pdfPath)
+    this.lessonService.downloadContent(this.lesson.pdfPath).subscribe(response => {
 			fileSaver.saveAs(response, '');
 		}), error => console.log('Error downloading the file'),
                  () => console.info('File downloaded successfully');
