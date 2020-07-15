@@ -1,7 +1,0 @@
-organization=cs2901-2020-1
-projectKey=cs2901-2020-1_project-side-project
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.9382
-dashboardUrl=https://sonarcloud.io/dashboard?id=cs2901-2020-1_project-side-project
-ceTaskId=AXMvzOEvBepY3hJwsdnv
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXMvzOEvBepY3hJwsdnv
