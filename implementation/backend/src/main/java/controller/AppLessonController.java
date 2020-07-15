@@ -18,7 +18,7 @@ public class AppLessonController {
     @Autowired
     private AppLessonService service;
 
-    @RequestMapping(value = "/unapproved", method = RequestMethod.POST)
+    @RequestMapping(value = "/unapproved", method = RequestMethod.GET)
     public ResponseEntity<?> getUnapprovedLesson() {
         List<AppLesson> unapproved = service.findUnapprovedLesson();
         return new ResponseEntity<>(unapproved, HttpStatus.OK);
