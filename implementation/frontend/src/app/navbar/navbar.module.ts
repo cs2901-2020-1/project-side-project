@@ -6,6 +6,7 @@ import { StudentNavbarComponent } from './student-navbar/student-navbar.componen
 import { RouterModule } from '@angular/router';
 import { DefaultNavbarComponent } from './default-navbar/default-navbar.component';
 import { TeacherNavbarComponent } from './teacher-navbar/teacher-navbar.component';
+import { CuradorNavbarComponent } from './curador-navbar/curador-navbar.component';
 
 
 
@@ -14,7 +15,8 @@ import { TeacherNavbarComponent } from './teacher-navbar/teacher-navbar.componen
     NavbarComponent,
     StudentNavbarComponent,
     DefaultNavbarComponent,
-    TeacherNavbarComponent
+    TeacherNavbarComponent,
+    CuradorNavbarComponent
   ],
   imports: [
     CommonModule,

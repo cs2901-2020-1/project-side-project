@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageService } from './services/image.service';
-import { AuthService, CourseService, TopicService, LessonService } from './services';
+import { AuthService, CourseService, TopicService, LessonService, AppLessonService } from './services';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './helpers';
 
@@ -23,6 +23,7 @@ export class SharedModule {
         CourseService,
         TopicService,
         LessonService,
+        AppLessonService,
         {
           provide: HTTP_INTERCEPTORS,
           useClass: JwtInterceptor,

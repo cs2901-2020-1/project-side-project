@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<h2>Todas sus Apprendo Clases</h2>
+<h2>Solicitudes de Apprendo clases por revisar</h2>
 <div class="container tbl">
     <table class="table table-responsive">
         <thead>
@@ -14,7 +14,7 @@
         <tbody>
           <tr *ngFor = "let lesson of lessons">
             <td> <mat-icon>class</mat-icon> 
-              <a [routerLink]="['/lesson/' + lesson.lessonId]" >{{formatTitle(lesson.title)}}</a>
+              <a [routerLink]="['/lesson/' + lesson.lessonId]" >{{lesson.title}}</a>
             </td>
 
             <td>
@@ -31,7 +31,7 @@
             
             <td>
                 <div class="badge badge-success" *ngIf="lesson.approved; else elseBlock">
-                    Aprovado
+                    Aprobado
                 </div>
                 <ng-template #elseBlock>
                     <div class="badge badge-secondary" *ngIf="lesson.approved == null; else elseBlock2">
