@@ -29,6 +29,15 @@ public class AppLessonService {
         return repository.findById(id).get();
     }
 
+    public List<AppLesson> findUnapprovedLesson(){
+        return repository.findByApprovedByIdDesc(false);
+    }
+
+    public AppLesson approveLesson(AppLesson item){
+        item.setApproved(true);
+        return create(item);
+    }
+
     public AppLesson create(AppLesson item){
         return repository.save(item);
     }
