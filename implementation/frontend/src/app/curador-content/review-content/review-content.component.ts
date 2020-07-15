@@ -27,13 +27,14 @@ export class ReviewContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getLessons();
+    this.getLessons();
   }
   
   getLessons() : void {
     this.applessonService.getReqAppLessons().pipe()
       .subscribe(
         data => {
+          console.log("Get unappoved lessons:")
           console.log(data)
           // this.lessons = data;
         },
