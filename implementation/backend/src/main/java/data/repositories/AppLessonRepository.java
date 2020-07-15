@@ -8,5 +8,5 @@ import data.entities.AppLesson;
 
 public interface AppLessonRepository extends CrudRepository<AppLesson, Long> {
 
-    public List<AppLesson> findByApprovedByIdDesc(Boolean approved);
+    public List<AppLesson> findByApproved(Boolean approved);
 }
