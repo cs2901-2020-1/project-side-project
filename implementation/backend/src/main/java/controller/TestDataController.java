@@ -81,7 +81,7 @@ public class TestDataController {
             curador.setRole(rCurador);
             usuarioService.save(curador);
         }
-        //createData();
+        createData();
         return "OK";
     }
 
