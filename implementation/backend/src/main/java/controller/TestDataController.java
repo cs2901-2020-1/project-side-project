@@ -78,6 +78,7 @@ public class TestDataController {
             curador.setPassword("apprendo");
             curador.setName("Curador");
             curador.setLastName("Oficial");
+            curador.setRole(rCurador);
             usuarioService.save(curador);
         }
         //createData();
