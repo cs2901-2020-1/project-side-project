@@ -83,6 +83,7 @@ public class LessonService {
 
         lesson.setAppLesson(appLesson);
         appLesson.setLesson(lesson);
+        appLesson.setApproved(false);
 
         appLessonService.create(appLesson);
         return lesson;
