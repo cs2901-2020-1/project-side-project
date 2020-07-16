@@ -1,6 +1,7 @@
 package data.models;
 
 import java.util.Date;
+import java.util.List;
 
 public class CommentModel {
 
@@ -8,6 +9,7 @@ public class CommentModel {
     private String email;
     private String content;
     private Date date;
+    private List<SubcommentModel> subcomments;
 
     public CommentModel() {}
 
@@ -41,5 +43,13 @@ public class CommentModel {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public List<SubcommentModel> getSubcomments() {
+        return subcomments;
+    }
+
+    public void setSubcomments(List<SubcommentModel> subcomments) {
+        this.subcomments = subcomments;
     }
 }

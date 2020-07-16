@@ -7,9 +7,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import data.models.CommentModel;
+import data.models.SubcommentModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "comment")
@@ -34,6 +38,10 @@ public class Comment implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lesson_id", nullable = false)
     private Lesson lesson;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Subcomment> subcomments;
 
     public Comment() {}
 
@@ -78,6 +86,14 @@ public class Comment implements Serializable {
         this.lesson = lesson;
     }
 
+    public Set<Subcomment> getSubcomments() {
+        return subcomments;
+    }
+
+    public void setSubcomments(Set<Subcomment> subcomments) {
+        this.subcomments = subcomments;
+    }
+
     public CommentModel getModel() {
         CommentModel model = new CommentModel();
 
@@ -85,6 +101,12 @@ public class Comment implements Serializable {
         model.setDate(date);
         model.setEmail(user.getEmail());
         model.setFullName(user.getFullName());
+
+        List<SubcommentModel> items = new ArrayList<>();
+        for (Subcomment subcomment : this.subcomments) {
+            items.add(subcomment.getModel());
+        }
+        model.setSubcomments(items);
 
         return model;
     }
