@@ -1,6 +1,8 @@
 package services;
 
 import data.entities.AppLesson;
+import data.entities.Lesson;
+import data.models.TeacherLesson;
 import data.repositories.AppLessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +31,13 @@ public class AppLessonService {
         return repository.findById(id).get();
     }
 
-    public List<AppLesson> findUnapprovedLesson(){
-        return repository.findByApproved(null);
+    public List<TeacherLesson> findUnapprovedLesson(){
+        List<AppLesson> appLessons = repository.findByApproved(null);
+        List<TeacherLesson> lessons = new ArrayList<>();
+        for (AppLesson item : appLessons) {
+            lessons.add(item.getLesson().getTeacherLesson());
+        }
+        return lessons;
     }
 
     public AppLesson approveLesson(AppLesson item){

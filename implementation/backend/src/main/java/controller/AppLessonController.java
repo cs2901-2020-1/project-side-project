@@ -1,6 +1,7 @@
 package controller;
 
 import data.entities.*;
+import data.models.TeacherLesson;
 import services.*;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class AppLessonController {
 
     @RequestMapping(value = "/unapproved", method = RequestMethod.GET)
     public ResponseEntity<?> getUnapprovedLesson() {
-        List<AppLesson> unapproved = service.findUnapprovedLesson();
+        List<TeacherLesson> unapproved = service.findUnapprovedLesson();
         return new ResponseEntity<>(unapproved, HttpStatus.OK);
     }
 

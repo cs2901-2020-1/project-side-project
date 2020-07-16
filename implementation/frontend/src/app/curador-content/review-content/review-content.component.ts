@@ -9,17 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ReviewContentComponent implements OnInit {
 
-  // lessons : any;
-  lessons : any = [
-	  {
-    course : "Curso",
-    lessonId: "500",
-		topic : "Topic",
-		approved : null,
-		date : 'August 19, 1975 23:15:30',
-		title : "Title"
-	  }
-	]
+  lessons : any;
 
   constructor(
     public snackBar: MatSnackBar,
@@ -36,7 +26,7 @@ export class ReviewContentComponent implements OnInit {
         data => {
           console.log("Get unappoved lessons:")
           console.log(data)
-          // this.lessons = data;
+          this.lessons = data;
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
