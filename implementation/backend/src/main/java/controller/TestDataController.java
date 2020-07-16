@@ -134,8 +134,8 @@ public class TestDataController {
         
 
         AppRequest ap1 = new AppRequest();
-        ap1.setTitle("Aritmetica polinomial");
-        ap1.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap1.setTitle("Un polinomio aritmético");
+        ap1.setDescription("Un polinomio aritmético es una expresión matemática en la que aparecen indicadas varias operaciones que pueden tener o no tener signos de agrupación.");
         ap1.setDocumentPath("intro_polinomios.pdf");
         ap1.setVideoPath("video.mp4");
         ap1.setTopicId(t1.getId());
@@ -144,7 +144,7 @@ public class TestDataController {
 
         AppRequest ap2 = new AppRequest();
         ap2.setTitle("Introducción a los polinomios");
-        ap2.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap2.setDescription("Un polinomio es una expresión algebraica constituida por una suma finita de productos entre variables y constantes.");
         ap2.setDocumentPath("intro_polinomios.pdf");
         ap2.setVideoPath("video.mp4");
         ap2.setTopicId(t1.getId());
@@ -153,7 +153,7 @@ public class TestDataController {
 
         AppRequest ap3 = new AppRequest();
         ap3.setTitle("Factorizando monomios");
-        ap3.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap3.setDescription("Un monomio es una expresión que es el producto de constantes y potencias enteras no negativas de x, como 3x^23. Un polinomio es una suma de monomios, como 3x^2+6x-1.");
         ap3.setDocumentPath("intro_polinomios.pdf");
         ap3.setVideoPath("video.mp4");
         ap3.setTopicId(t2.getId());
@@ -162,7 +162,7 @@ public class TestDataController {
 
         AppRequest ap4 = new AppRequest();
         ap4.setTitle("Métodos para dividir polinomios");
-        ap4.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap4.setDescription("Se ordena el dividendo y el divisor según las potencias decrecientes de la variable. Dividimos el término primero del dividendo entre el término primero del divisor, para obtener el primer término del cociente.");
         ap4.setDocumentPath("intro_polinomios.pdf");
         ap4.setVideoPath("video.mp4");
         ap4.setTopicId(t3.getId());
@@ -171,7 +171,7 @@ public class TestDataController {
 
         AppRequest ap5 = new AppRequest();
         ap5.setTitle("Teorema del resto");
-        ap5.setDescription("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugit repudiandae nobis itaque mollitia unde qui molestiae ipsam soluta ratione.");
+        ap5.setDescription("Con el teorema del resto podemos calcular el resto de una división sin tener que hacerla, siempre que dividamos un polinomio por un binomio de la forma x-a.");
         ap5.setDocumentPath("intro_polinomios.pdf");
         ap5.setVideoPath("video.mp4");
         ap5.setTopicId(t3.getId());  
