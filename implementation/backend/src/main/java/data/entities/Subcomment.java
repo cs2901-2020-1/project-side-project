@@ -2,6 +2,7 @@ package data.entities;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import data.models.SubcommentModel;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -74,6 +75,7 @@ public class Subcomment implements Serializable {
         this.user_to = user_to;
     }
 
+    @JsonIgnore
     public Comment getComment() {
         return comment;
     }

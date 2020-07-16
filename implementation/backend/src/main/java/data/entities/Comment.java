@@ -10,10 +10,7 @@ import data.models.CommentModel;
 import data.models.SubcommentModel;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "comment")
@@ -41,7 +38,7 @@ public class Comment implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Subcomment> subcomments;
+    private Set<Subcomment> subcomments = new HashSet<>();
 
     public Comment() {}
 
@@ -76,8 +73,7 @@ public class Comment implements Serializable {
     public void setUser(Usuario user) {
         this.user = user;
     }
-    
-    @JsonIgnore
+
     public Lesson getLesson() {
         return lesson;
     }
@@ -102,7 +98,7 @@ public class Comment implements Serializable {
         model.setEmail(user.getEmail());
         model.setFullName(user.getFullName());
 
-        List<SubcommentModel> items = new ArrayList<>();
+        List<SubcommentModel> items = new ArrayList<SubcommentModel>();
         for (Subcomment subcomment : this.subcomments) {
             items.add(subcomment.getModel());
         }

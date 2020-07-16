@@ -74,7 +74,8 @@ public class LessonController {
         if (comment == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(comment.getModel(), HttpStatus.OK);
+        CommentModel model = comment.getModel();
+        return new ResponseEntity<>(model, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/like", method = RequestMethod.POST)
