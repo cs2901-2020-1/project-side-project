@@ -30,7 +30,7 @@ public class AppLessonService {
     }
 
     public List<AppLesson> findUnapprovedLesson(){
-        return repository.findByApproved(false);
+        return repository.findByApproved(null);
     }
 
     public AppLesson approveLesson(AppLesson item){
