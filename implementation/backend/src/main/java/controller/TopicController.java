@@ -26,7 +26,7 @@ public class TopicController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getById(@PathVariable Long id) {
-        Topic topic = service.findOne(id);
+        Topic topic = service.findByApprovedLesson(id);
         if (topic == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
