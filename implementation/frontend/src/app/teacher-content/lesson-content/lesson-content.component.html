@@ -5,7 +5,7 @@
     <div class="estado">
         <p>Estado</p>
         <div class="badge badge-success" *ngIf="lesson.approved; else elseBlock">
-            Aprovado
+            Aprobado
         </div>
         <ng-template #elseBlock>
             <div class="badge badge-secondary" *ngIf="lesson.approved == null; else elseBlock2">

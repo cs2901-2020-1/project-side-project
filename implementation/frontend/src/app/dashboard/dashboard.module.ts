@@ -8,12 +8,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
 import { NavbarModule } from '../navbar/navbar.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CuradorDashboardComponent } from './curador-dashboard/curador-dashboard.component';
 
 @NgModule({
   declarations: [
     StudentDashboardComponent,
     DashboardComponent,
-    TeacherDashboardComponent
+    TeacherDashboardComponent,
+    CuradorDashboardComponent
   ],
   imports: [
     CommonModule,

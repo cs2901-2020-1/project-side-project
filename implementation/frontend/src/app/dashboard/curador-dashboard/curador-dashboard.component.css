@@ -1,0 +1,77 @@
+.wrapper {
+    background-color: #f7f7f7;
+}
+
+.custom-navbar {
+    margin-left: 20px;
+}
+
+.site-header {
+    border-bottom: 1px solid #ECEDEF;
+    background: #FFFFFF;
+}
+    
+.apprendo-nav {
+    font-size: 2rem;
+    line-height: 40px
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.titulo-tema {
+    color: #1F1F1F;
+}
+
+.tema-descripcion {
+    color: #000000;
+    opacity: 0.4;
+}
+
+.site-header {
+    min-height: 60px;
+    border-bottom: 1px solid #ECEDEF;
+    background: #FFFFFF;
+}
+
+.apprendo-nav {
+    font-size: 1.5rem;
+}
+
+.title-course {
+    margin-bottom: 12px;
+    font-size: 36px;
+    line-height: 1.11em;
+    color: #000000;
+    font-family: Soleil-Bold;
+    font-weight: 500;
+}
+
+.topic {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 336px;
+    padding: 24px 24px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    border-radius: 6px;
+    transition: border-color 100ms linear, box-shadow 100ms linear;
+}
+
+.topic:hover {
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.20);
+}
+
+.container-cursos {
+    padding-top: 25px;
+}
+
+.container-item-curso{
+    margin-bottom: 30px;
+}
+
+.container-item-topic {
+    margin-bottom: 15px;
+}
