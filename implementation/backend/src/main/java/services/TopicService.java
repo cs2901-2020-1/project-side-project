@@ -42,7 +42,7 @@ public class TopicService {
         Set<Lesson> items = new HashSet<>();
 
         for (Lesson item : topic.getLessons()) {
-            if (item.getAppLesson() == null) {
+            if (item.getAppLesson().getApproved() == null) {
                 continue;
             }
 
