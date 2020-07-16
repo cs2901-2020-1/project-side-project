@@ -37,7 +37,7 @@ export class LessonService {
       })
     )
   }
-
+  
   getTeacherLesson(lessonId: string) : Observable<any> {
     return this.http.get(LessonService.path + 'preview/' + lessonId).pipe(
       map(data => {

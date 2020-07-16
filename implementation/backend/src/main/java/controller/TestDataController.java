@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import data.entities.Course;
 import data.entities.Role;
 import data.entities.Topic;
+import data.entities.Usuario;
 import data.models.AppRequest;
 import data.models.StudentSignup;
 import data.models.TeacherSignup;
@@ -66,6 +67,19 @@ public class TestDataController {
             student.setLastName("Cupe");
             student.setSchool("CMSPP");
             usuarioService.createStudent(student);
+        }
+
+        if (roleService.findOneByName("CURADOR") == null) {
+            Role rCurador = new Role("CURADOR");
+            roleService.create(rCurador);
+
+            Usuario curador = new Usuario();
+            curador.setEmail("curador@apprendo.com");
+            curador.setPassword("apprendo");
+            curador.setName("Curador");
+            curador.setLastName("Oficial");
+            curador.setRole(rCurador);
+            usuarioService.save(curador);
         }
         createData();
         return "OK";

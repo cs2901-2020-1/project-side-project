@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { SubirContenidoComponent } from './teacher-content/subir-contenido/subir-contenido.component';
 import { OwnContentComponent } from './teacher-content/own-content/own-content.component'
 import { LessonContentComponent } from './teacher-content/lesson-content/lesson-content.component';
+import { ReviewContentComponent } from './curador-content/review-content/review-content.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'contenido-propio',
     component: OwnContentComponent
+  },
+  {
+    path: 'revisar-clases',
+    component: ReviewContentComponent
   },
   {
     path: 'lesson/:id',

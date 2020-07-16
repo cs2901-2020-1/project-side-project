@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BnNgIdleService } from 'bn-ng-idle';
 import { StudentContentModule } from './student-content/student-content.module';
 import { TeacherContentModule } from './teacher-content/teacher-content.module'
+import { CuradorContentModule } from './curador-content/curador-content.module';
 
 
 
@@ -31,6 +32,7 @@ import { TeacherContentModule } from './teacher-content/teacher-content.module'
     ReactiveFormsModule,
     HomeModule,
     DashboardModule,
+    CuradorContentModule,
     AuthModule,
     BrowserAnimationsModule,
     HttpClientModule,

@@ -80,6 +80,11 @@ public class UsuarioService {
         return user;
     }
 
+    public Usuario save(Usuario user) {
+        user.setPassword(bcryptEncoder.encode(user.getPassword()));
+        return repository.save(user);
+    }
+
     public void delete(Long id){
         repository.delete(findOne(id));
     }
