@@ -41,10 +41,10 @@
             <a href="">
                 {{lesson.teacher}}
             </a>
-            <div style="margin-top: 20px;">
-                <span>Descargar Contenido</span>
-                <a style="cursor: pointer;" (click)="downloadVideo()">Video</a>
-                <a style="cursor: pointer;" (click)="downloadPdf()">Documento</a>
+            <div class="inner">
+                <span class="title">Descargar Contenido</span>
+                <a class="pointer" (click)="downloadVideo()"><mat-icon>video_library</mat-icon> Video</a>
+                <a class="pointer" (click)="downloadPdf()"><mat-icon>picture_as_pdf</mat-icon> Documento</a>
             </div>
         </div>
     </section>
