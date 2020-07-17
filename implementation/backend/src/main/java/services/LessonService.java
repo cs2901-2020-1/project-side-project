@@ -63,6 +63,13 @@ public class LessonService {
         return lessons;
     }
 
+    public List<Lesson> getApprovedLessonFromTopic(Long topicId, Boolean approved) {
+
+        List<Lesson> lessons = new ArrayList<>(repository.findByTopicIdAndAppLessonApproved(topicId, approved));
+
+        return lessons;
+    }
+
     public Lesson findOne(Long id){
         return repository.findById(id).get();
     }

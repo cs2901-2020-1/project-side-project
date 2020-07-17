@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<main>
+<main *ngIf="contentLoaded">
   <section class="jumbotron text-center bloque-tema">
     <a class="container">
       <!-- Nombre del tema -->
@@ -13,7 +13,7 @@
     <div class="container">
 
       <div class="row">
-        <div class="col-md-4" *ngFor="let lesson of topic.lessons">
+        <div class="col-md-4" *ngFor="let lesson of lessons">
           <div class="card mb-4 shadow-sm">
             <div class="card-img-top">
               <p>{{lesson.title}}</p>

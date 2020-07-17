@@ -19,6 +19,9 @@ public class TopicService {
     @Autowired
     private TopicRepository repository;
 
+    @Autowired
+    private LessonService lessonService;
+
     public List<Topic> findAll(){
         List<Topic> items = new ArrayList<>();
 
@@ -35,26 +38,15 @@ public class TopicService {
     public Topic findByApprovedLesson(Long id){
         Topic topic = findOne(id);
 
-        if (topic == null) {
-            return null;
-        }
+        if (topic == null) return null;
 
-        Set<Lesson> items = new HashSet<>();
+        Set<Lesson> lessons = new HashSet<>();
 
-        for (Lesson item : topic.getLessons()) {
-            if (item.getAppLesson().getApproved() == null) {
-                continue;
-            }
+        lessons.addAll(lessonService.getApprovedLessonFromTopic(id, true));
 
-            if (item.getAppLesson().getApproved()) {
-                items.add(item);
-            }
-        }
-
-        Topic temp = topic;
-        temp.setLessons(items);
+        topic.setLessons(lessons);
         
-        return temp;
+        return topic;
     }
 
     public Topic create(Topic item){
