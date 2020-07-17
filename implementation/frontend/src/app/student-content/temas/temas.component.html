@@ -15,7 +15,10 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let lesson of topic.lessons">
           <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x=5% y="10%" fill="#eceeef" dy=".3em">{{lesson.title}}</text></svg>
+            <div class="card-img-top">
+              <p>{{lesson.title}}</p>
+              <!-- <img src="assets/images/logo.png" alt=""> -->
+            </div>
             <div class="card-body">
               <p class="card-text">{{lesson.description}}</p>
               <div class="d-flex justify-content-between appclase-foot">
