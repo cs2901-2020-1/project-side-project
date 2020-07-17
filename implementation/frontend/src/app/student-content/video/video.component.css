@@ -123,7 +123,6 @@ main {
     display: inline-block;
     text-decoration: none;
     padding: 3px 15px;
-    border-radius: 10px;
     font-size: 14px;
     margin: 5px 0;
     margin-right: 5px;
@@ -136,13 +135,9 @@ main {
 }
 
 .title .tags .tema {
+    border-radius: 10px;
     color: #1a92ff;
     border: 1px solid #1a92ff;
-}
-
-.title .tags .curso:hover {
-    color: white;
-    background-color: #ffa51a;
 }
 
 .title .tags .tema:hover {

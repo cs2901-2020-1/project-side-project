@@ -147,6 +147,9 @@ public class Lesson implements Serializable {
 
         model.setVideoPath(videoPath);
         model.setDocumentPath(documentPath);
+        model.setTopicId(topic.getId());
+        model.setTopic(topic.getName());
+        model.setCourse(topic.getCourse().getName());
         model.setTeacher(teacher.getUser().getFullName());
 
         List<CommentModel> items = new ArrayList<>();

@@ -10,7 +10,11 @@ public class LessonModel {
     private String videoPath;
     private String documentPath;
 
+    private String topic;
+    private String course;
+
     private String teacher;
+    private Long topicId;
 
     private Long numLikes;
     private Boolean like;
@@ -81,5 +85,29 @@ public class LessonModel {
 
     public void setTeacher(String teacher) {
         this.teacher = teacher;
+    }
+
+    public Long getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(Long topicId) {
+        this.topicId = topicId;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }

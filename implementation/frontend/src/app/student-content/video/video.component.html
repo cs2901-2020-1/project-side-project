@@ -22,11 +22,11 @@
                 </div>
             </div>
             <div class="tags">
-                <a href="" class="curso">
-                    Curso: Matemática
+                <a class="curso">
+                    {{lesson.course}}
                 </a>
-                <a href="" class="tema">
-                    Tema: Polinomios
+                <a [routerLink]="['/tema/' + lesson.topicId]" target="_blank" class="tema">
+                    Tema: {{lesson.topic}}
                 </a>
             </div>
             <div class="description">
