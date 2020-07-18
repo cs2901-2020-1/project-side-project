@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+<div *ngIf="loaded" class="container">
+
+    <h2>{{lesson.title}}</h2>
+    <div class="estado">
+        <p>Estado</p>
+        <div class="badge badge-success" *ngIf="lesson.approved; else elseBlock">
+            Aprobado
+        </div>
+        <ng-template #elseBlock>
+            <div class="badge badge-secondary" *ngIf="lesson.approved == null; else elseBlock2">
+                En espera
+            </div>
+            <ng-template #elseBlock2>
+                <div class="badge badge-danger">
+                    No aprobado
+                </div>
+            </ng-template>
+        </ng-template>
+    </div>
+
+    <section class="lesson">
+
+        <div class="media">
+
+            <div class="video">
+                <video controls id="rpd-video">
+                    <source src="{{lesson.videoPath}}" type="video/mp4">
+                </video>
+            </div>
+            
+            <div class="buttons">
+                <!--<button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
+                    <mat-icon>view_carousel</mat-icon> Ver <span class="oculto">documento</span> PDF
+                </button>-->
+                <a *ngIf="lesson.documentPath" class="btn" (click)="download()"> 
+                    <mat-icon>cloud_download</mat-icon> Descargar PDF <span class="oculto">adjunto</span>
+                </a>
+                <a *ngIf="lesson.approved" [routerLink]="['/video/' + lesson.lessonId]" class="btn" href="" target="_blank" >
+                    Ver <span class="oculto">Apprendo</span> clase <mat-icon>launch</mat-icon>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="info">
+            <div class="groupo">
+                <h3 class="titulo">Título:</h3>
+                <p class="hi">{{lesson.title}}</p>
+            </div>
+            <div class="groupo">
+                <h3 class="titulo">Descripción:</h3>
+                <p>{{lesson.description}}</p>
+            </div>
+            <div class="groupo">
+                <h3 class="titulo">Curso:</h3>
+                <p>
+                    {{lesson.course}} 
+                    <!--<a href="" target="_blank"><mat-icon>launch</mat-icon></a>-->
+                </p>
+            </div>
+            <div class="groupo">
+                <h3 class="titulo">Tema</h3>
+                <p>
+                    {{lesson.topic}}
+                    <a [routerLink]="['/tema/' + lesson.topicId]" target="_blank"><mat-icon>launch</mat-icon></a>
+                </p>
+            </div>
+        </div>
+
+         <!-- Modal 
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <iframe src="../../../assets/videos/PDF.pdf" frameborder="0"></iframe>
+                </div>
+            </div>
+            </div>
+        </div>-->
+    </section>
+
+</div>

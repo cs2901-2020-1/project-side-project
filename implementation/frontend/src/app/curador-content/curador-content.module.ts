@@ -5,11 +5,12 @@ import { NavbarModule } from '../navbar/navbar.module';
 import { MaterialModule } from '../material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { CheckContentComponent } from './check-content/check-content.component';
 
 
 
 @NgModule({
-  declarations: [ReviewContentComponent],
+  declarations: [ReviewContentComponent, CheckContentComponent],
   imports: [
     CommonModule,
     RouterModule,
