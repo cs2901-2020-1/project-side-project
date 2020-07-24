@@ -14,7 +14,11 @@ export class CheckContentComponent implements OnInit {
 
   lesson : any;
 
+  applessonId : number;
+
   loaded : boolean = false;
+
+  curate : boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,8 +41,25 @@ export class CheckContentComponent implements OnInit {
           this.lesson = data;
           this.lesson.videoPath = environment.APIEndpoint + '/files/' + data.videoPath;
           this.lesson.documentPath = environment.APIEndpoint + '/files/' + data.documentPath;
+          this.applessonId = data.applessonId
           this.loaded = true;
+          /* this.curate = data.approved == null; */
+          this.curate = true;
           console.log(this.lesson);
+        },
+        err => {
+          this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+        }
+      )
+  }
+
+  curateContent(aprroval : boolean) : void {
+    this.applessonService.curateContent(this.applessonId, aprroval)
+      .pipe()
+      .subscribe(
+        data => {
+          this.curate = false;
+          this.openSnackBar('Se curó contenido con éxito 👍', 'Cerrar');
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
