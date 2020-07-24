@@ -8,6 +8,7 @@ public class CommentModel {
     private String fullName;
     private String email;
     private String content;
+    private Long id;
     private Date date;
     private List<SubcommentModel> subcomments;
 
@@ -51,5 +52,13 @@ public class CommentModel {
 
     public void setSubcomments(List<SubcommentModel> subcomments) {
         this.subcomments = subcomments;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

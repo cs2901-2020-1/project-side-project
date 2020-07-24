@@ -95,6 +95,7 @@ public class Comment implements Serializable {
 
         model.setContent(content);
         model.setDate(date);
+        model.setId(id);
         model.setEmail(user.getEmail());
         model.setFullName(user.getFullName());
 
