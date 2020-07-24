@@ -31,7 +31,7 @@ public class AppLessonController {
         if (lesson == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        service.curateLesson(lesson, approval);
-        return new ResponseEntity<>(HttpStatus.OK);
+        AppLesson appLesson = service.curateLesson(lesson, approval);
+        return new ResponseEntity<>(appLesson, HttpStatus.OK);
     }
 }

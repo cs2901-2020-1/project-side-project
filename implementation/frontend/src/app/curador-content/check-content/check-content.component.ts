@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LessonService } from 'src/app/shared/services';
+import { LessonService, AppLessonService } from 'src/app/shared/services';
 import { environment } from 'src/environments/environment';
 import * as fileSaver from 'file-saver';
 
@@ -19,7 +19,8 @@ export class CheckContentComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public snackBar: MatSnackBar,
-    private lessonService: LessonService) {
+    private lessonService: LessonService,
+    private applessonService: AppLessonService) {
       this.getRouteParams();
     }
 
