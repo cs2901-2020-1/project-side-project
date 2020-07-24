@@ -31,6 +31,9 @@ public class LessonController {
     private UserService userService;
 
     @Autowired
+    private CommentService commentService;
+
+    @Autowired
     private LikeService likeService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -75,6 +78,16 @@ public class LessonController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         CommentModel model = comment.getModel();
+        return new ResponseEntity<>(model, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/subcomment", method = RequestMethod.POST)
+    public ResponseEntity<?> subcommentLesson(@RequestBody SubcommentRequest subcommentRequest) {
+        Subcomment subcomment = commentService.subcommentLesson(subcommentRequest);
+        if (subcomment == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        SubcommentModel model = subcomment.getModel();
         return new ResponseEntity<>(model, HttpStatus.OK);
     }
 
