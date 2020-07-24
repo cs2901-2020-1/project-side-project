@@ -54,6 +54,14 @@ export class LessonService {
         ))
   }
 
+  subcomment(comment: any) : Observable<any> {
+    return this.http.post<any>(LessonService.path + 'subcomment', comment)
+            .pipe(map(data => {
+                return data
+            }
+        ))
+  }
+
   likeVideo(like: any) : Observable<any> {
     return this.http.post<any>(LessonService.path + 'like', like)
             .pipe(map(data => {

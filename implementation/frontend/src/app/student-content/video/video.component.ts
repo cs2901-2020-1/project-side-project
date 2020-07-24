@@ -23,6 +23,20 @@ export class VideoComponent implements OnInit {
 
   like: Boolean = false;
 
+  commentId : number;
+
+  index : number;
+
+  sub_index : number;
+
+  show_textarea : boolean = false;
+
+  response_area : any;
+
+  valid_subcomment : boolean = false;
+
+  name_tag : boolean = false;
+
   constructor(
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
@@ -121,6 +135,68 @@ export class VideoComponent implements OnInit {
 			fileSaver.saveAs(response, '');
 		}), error => console.log('Error downloading the file'),
                  () => console.info('File downloaded successfully');
+  }
+
+  responder(id : number, indx : number) {
+    if (this.commentId == id && this.show_textarea && this.sub_index == undefined ) {
+      this.show_textarea = false;
+      return;
+    }
+    this.name_tag = false;
+    this.show_textarea = true;
+    this.commentId = id;
+    this.index = indx;
+    console.log("Comentario " + id);
+    this.sub_index = undefined;
+  }
+
+  responder_sub(id : number, indx : number, sub_id : number) {
+    if (this.sub_index == sub_id && this.show_textarea) {
+      this.show_textarea = false;
+      return;
+    }
+    if (this.response_area) this.response_area.value = '';
+    this.show_textarea = true;
+    this.commentId = id;
+    this.index = indx;
+    this.sub_index = sub_id;
+    this.name_tag = true;
+    console.log("Comentario " + id + "\nSub comentario " + sub_id);
+  }
+
+  touchArea() {
+    let user_to = '';
+    if (this.name_tag) user_to = this.comments[this.index].subcomments[this.sub_index].username;
+    let subcomment = {
+      commentId: this.commentId,
+      username: this.authService.currentUserFullName(),
+      user_to: user_to,
+      content: this.response_area.value
+    }
+    this.lessonService.subcomment(subcomment)
+      .pipe()
+      .subscribe(
+        data => {
+          this.comments[this.index].subcomments.push(data)
+          this.response_area.value = '';
+          this.name_tag = false;
+          this.sub_index = undefined;
+          this.chackSubcontent();
+        },
+        err => {
+          this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');
+        }
+      )
+  }
+
+  chackSubcontent() {
+    this.valid_subcomment = this.response_area.value.length > 1;
+  }
+
+  responseArea() {
+    if (document.getElementById(''+ this.index) != null) {
+      this.response_area = document.getElementById(''+ this.index).getElementsByClassName('typing')[0];
+    }
   }
 
   get content(){
