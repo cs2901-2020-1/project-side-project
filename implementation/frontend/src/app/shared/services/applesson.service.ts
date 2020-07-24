@@ -21,4 +21,13 @@ export class AppLessonService {
       })
     )
   }
+
+  curateContent(applessonId : number, approval : boolean) : Observable<any> {
+    return this.http.post(AppLessonService.path + 'approve/' + applessonId + '/' + approval, 1)
+    .pipe(
+      map(data => {
+        return data
+      })
+    )
+  }
 }

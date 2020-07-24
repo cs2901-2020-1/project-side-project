@@ -11,6 +11,7 @@ import { SubirContenidoComponent } from './teacher-content/subir-contenido/subir
 import { OwnContentComponent } from './teacher-content/own-content/own-content.component'
 import { LessonContentComponent } from './teacher-content/lesson-content/lesson-content.component';
 import { ReviewContentComponent } from './curador-content/review-content/review-content.component';
+import { CheckContentComponent } from './curador-content/check-content/check-content.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'revisar-clases',
     component: ReviewContentComponent
+  },
+  {
+    path: 'curar-contenido/:id',
+    component: CheckContentComponent
   },
   {
     path: 'lesson/:id',

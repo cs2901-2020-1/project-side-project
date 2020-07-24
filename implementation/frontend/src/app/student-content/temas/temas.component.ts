@@ -12,6 +12,10 @@ export class TemasComponent implements OnInit {
 
   topic: any;
 
+  lessons : any;
+
+  contentLoaded : boolean = false;
+
   constructor(
       private route: ActivatedRoute,
       public snackBar: MatSnackBar,
@@ -29,7 +33,11 @@ export class TemasComponent implements OnInit {
       .pipe()
       .subscribe(
         data => {
-          this.topic = data
+          this.topic = data;
+          this.lessons = data.lessons;
+          this.lessons.sort((a, b)=> b.model.numLikes - a.model.numLikes)
+          this.contentLoaded = true;
+          console.log(this.lessons);
         },
         err => {
           this.openSnackBar('Ha ocurrido un error :c', 'Cerrar');

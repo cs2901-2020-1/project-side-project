@@ -22,11 +22,11 @@
                 </div>
             </div>
             <div class="tags">
-                <a href="" class="curso">
-                    Curso: Matemática
+                <a class="curso">
+                    {{lesson.course}}
                 </a>
-                <a href="" class="tema">
-                    Tema: Polinomios
+                <a [routerLink]="['/tema/' + lesson.topicId]" target="_blank" class="tema">
+                    Tema: {{lesson.topic}}
                 </a>
             </div>
             <div class="description">
@@ -38,13 +38,13 @@
         </div>
         <div class="profesor">
             <span>Profesor</span>
-            <a href="">
+            <a>
                 {{lesson.teacher}}
             </a>
-            <div style="margin-top: 20px;">
-                <span>Descargar Contenido</span>
-                <a style="cursor: pointer;" (click)="downloadVideo()">Video</a>
-                <a style="cursor: pointer;" (click)="downloadPdf()">Documento</a>
+            <div class="inner">
+                <span class="title">Descargar Contenido</span>
+                <a class="pointer" (click)="downloadVideo()"><mat-icon>video_library</mat-icon> Video</a>
+                <a class="pointer" (click)="downloadPdf()"><mat-icon>picture_as_pdf</mat-icon> Documento</a>
             </div>
         </div>
     </section>

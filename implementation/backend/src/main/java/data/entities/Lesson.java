@@ -147,6 +147,9 @@ public class Lesson implements Serializable {
 
         model.setVideoPath(videoPath);
         model.setDocumentPath(documentPath);
+        model.setTopicId(topic.getId());
+        model.setTopic(topic.getName());
+        model.setCourse(topic.getCourse().getName());
         model.setTeacher(teacher.getUser().getFullName());
 
         List<CommentModel> items = new ArrayList<>();
@@ -169,6 +172,7 @@ public class Lesson implements Serializable {
         TeacherLesson teacherLesson = new TeacherLesson();
 
         teacherLesson.setLessonId(this.id);
+        teacherLesson.setApplessonId(this.appLesson.getId());
         teacherLesson.setTitle(this.title);
         teacherLesson.setDescription(this.description);
         teacherLesson.setDate(this.getAppLesson().getApplicationDate());

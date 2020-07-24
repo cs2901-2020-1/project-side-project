@@ -4,7 +4,7 @@
     <table class="table table-responsive">
         <thead>
           <tr>
-            <th class="grande" scope="col">Nombre</th>
+            <th class="grande" scope="col">Apprendo Clase</th>
             <th class="pequenno" scope="col">Curso</th>
             <th class="mediano" scope="col">Tema</th>
             <th class="mediano" scope="col">Fecha de solicitud</th>
@@ -14,7 +14,7 @@
         <tbody>
           <tr *ngFor = "let lesson of lessons">
             <td> <mat-icon>class</mat-icon> 
-              <a [routerLink]="['/lesson/' + lesson.lessonId]" >{{lesson.title}}</a>
+              <a [routerLink]="['/curar-contenido/' + lesson.lessonId]" >{{lesson.title}}</a>
             </td>
 
             <td>

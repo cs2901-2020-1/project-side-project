@@ -2,7 +2,7 @@ package data.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "course")
@@ -38,8 +38,10 @@ public class Course implements Serializable {
         this.name = name;
     }
 
-    public Set<Topic> getTopics() {
-        return topics;
+    public List<Topic> getTopics() {
+        List<Topic> temas = new ArrayList<>(topics);
+        temas.sort(Comparator.comparing(Topic::getName));
+        return temas;
     }
 
     public void setTopics(Set<Topic> topics) {

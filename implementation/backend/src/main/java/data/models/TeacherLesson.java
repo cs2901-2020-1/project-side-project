@@ -5,6 +5,7 @@ import java.util.Date;
 public class TeacherLesson {
 
     private Long lessonId;
+    private Long applessonId;
     private String title;
     private String description;
     private Date date;
@@ -117,5 +118,13 @@ public class TeacherLesson {
 
     public void setCourseId(Long courseId) {
         this.courseId = courseId;
+    }
+
+    public Long getApplessonId() {
+        return applessonId;
+    }
+
+    public void setApplessonId(Long applessonId) {
+        this.applessonId = applessonId;
     }
 }

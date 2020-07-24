@@ -9,4 +9,6 @@ import java.util.List;
 public interface LessonRepository extends CrudRepository<Lesson, Long> {
 
     public List<Lesson> findByTeacherIdOrderByIdDesc(Long teacherId);
+
+    public List<Lesson> findByTopicIdAndAppLessonApproved(Long topicId, Boolean approved);
 }

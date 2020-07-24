@@ -1,7 +1,6 @@
 package services;
 
 import data.entities.AppLesson;
-import data.entities.Lesson;
 import data.models.TeacherLesson;
 import data.repositories.AppLessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +39,8 @@ public class AppLessonService {
         return lessons;
     }
 
-    public AppLesson approveLesson(AppLesson item){
-        item.setApproved(true);
+    public AppLesson curateLesson(AppLesson item, Boolean approval){
+        item.setApproved(approval);
         return create(item);
     }
 

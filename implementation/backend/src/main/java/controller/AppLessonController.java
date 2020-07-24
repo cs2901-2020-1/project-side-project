@@ -25,13 +25,13 @@ public class AppLessonController {
         return new ResponseEntity<>(unapproved, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/approve/{id}", method = RequestMethod.POST)
-    public ResponseEntity<?> approveLesson(@PathVariable Long id) {
+    @RequestMapping(value = "/approve/{id}/{approval}", method = RequestMethod.POST)
+    public ResponseEntity<?> approveLesson(@PathVariable Long id, @PathVariable Boolean approval) {
         AppLesson lesson = service.findOne(id);
-        if (lesson.getApproved()) {
-            return new ResponseEntity<>(HttpStatus.OK);
+        if (lesson == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        service.approveLesson(lesson);
-        return new ResponseEntity<>(HttpStatus.OK);
+        AppLesson appLesson = service.curateLesson(lesson, approval);
+        return new ResponseEntity<>(appLesson, HttpStatus.OK);
     }
 }
