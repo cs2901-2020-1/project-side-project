@@ -39,8 +39,8 @@ public class AppLessonService {
         return lessons;
     }
 
-    public AppLesson approveLesson(AppLesson item){
-        item.setApproved(true);
+    public AppLesson curateLesson(AppLesson item, Boolean approval){
+        item.setApproved(approval);
         return create(item);
     }
 
