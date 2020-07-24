@@ -2,21 +2,13 @@
 <div *ngIf="loaded" class="container">
 
     <h2>{{lesson.title}}</h2>
-    <div class="estado">
-        <p>Estado</p>
-        <div class="badge badge-success" *ngIf="lesson.approved; else elseBlock">
-            Aprobado
+    <div *ngIf="curate" class="evaluar">
+        <div class="btn ap" (click)="curateContent(true)">
+            Aprobar
         </div>
-        <ng-template #elseBlock>
-            <div class="badge badge-secondary" *ngIf="lesson.approved == null; else elseBlock2">
-                En espera
-            </div>
-            <ng-template #elseBlock2>
-                <div class="badge badge-danger">
-                    No aprobado
-                </div>
-            </ng-template>
-        </ng-template>
+        <div class="btn re" (click)="curateContent(false)">
+            Rechazar
+        </div>
     </div>
 
     <section class="lesson">
