@@ -172,6 +172,7 @@ public class Lesson implements Serializable {
         TeacherLesson teacherLesson = new TeacherLesson();
 
         teacherLesson.setLessonId(this.id);
+        teacherLesson.setApplessonId(this.appLesson.getId());
         teacherLesson.setTitle(this.title);
         teacherLesson.setDescription(this.description);
         teacherLesson.setDate(this.getAppLesson().getApplicationDate());
