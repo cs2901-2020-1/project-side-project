@@ -17,7 +17,7 @@
 ![](images/Sprint2.png)
 
 ## Sprint 3 (Entrega Final)
-![](images/Sprint3.png)
+![](Sprint3.png)
 
 ## Contenido
 ### [Glosario](docs/glossary.md)
